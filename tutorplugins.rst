@@ -35,6 +35,96 @@ One possible alternative to plugins was to create an extensive set of configurat
 
 For all these reasons, Tutor does not attempt to provide simple settings for every single use case. Instead, Tutor exposes a plugin API that allows anyone to modify almost all parts of Tutor. We accept that the set of defaults that ships with Tutor might not work for everyone. So Tutor tries very hard to make it as easy as possible to change its default behaviour. As a consequence, plugin developers become responsible of maintaining their own extensions.
 
+Plugin fundamentals
+===================
+
+Before we can understand how to implement plugins, we must first explain how Tutor performs plugin discovery and loading.
+
+Plugin discovery
+----------------
+
+Tutor plugins are listed with the following command::
+
+    tutor plugins list
+
+On a computer running Tutor v16, the command above will output something that is similar to the following::
+
+    NAME       	STATUS   	VERSION
+    android    	installed	16.0.0
+    cairn      	installed	16.0.3
+    credentials	✅ enabled	16.0.0
+    discovery  	✅ enabled	16.0.0
+    ecommerce  	installed	16.0.0
+    indigo     	installed	16.0.0
+    jupyter    	installed	16.0.1
+    mfe        	✅ enabled	16.1.1
+    minio      	installed	16.0.1
+    notes      	installed	16.0.1
+    sentry     	installed	/home/username/.local/share/tutor-plugins/sentry.py
+    webui      	✅ enabled	16.0.0
+    xqueue     	installed	16.0.1
+
+How does Tutor find out which plugins are available? There are two sources for plugin discovery:
+
+1. Modules: these are individual files which are stored in a specific directory. On Linux, it is ``~/.local/share/tutor-plugins``. This hard-coded location can be obtained by running ``tutor plugins printroot``. It can be overridden by defining the ``TUTOR_PLUGINS_ROOT`` environment variable. Any file that is stored in this directory is considered as a plugin. This is the case of the "sentry" plugin above.
+2. Packages: any installed Python package that includes an entrypoint named "tutor.plugin.v1" will be considered as a installed plugin. For instance, the "notes" plugin has the following entry in its `setup.py file <https://github.com/overhangio/tutor-notes/blob/master/setup.py>`__::
+
+    entry_points={"tutor.plugin.v1": ["notes = tutornotes.plugin"]}
+
+Discovery of both types of plugins is performed in the `tutor.plugins.v1 <https://github.com/overhangio/tutor/blob/master/tutor/plugins/v1.py>`__ module. To be precise, discovery is implemented in the ``_discover_module_plugins()`` and ``_discover_entrypoint_plugins()`` functions. Notice how these functions are actually callbacks of the ``CORE_READY`` action? We will be talking about that in a minute 😉
+
+Plugin loading
+--------------
+
+Once plugins have been discovered, how are they loaded such that they can actually have an effect on how Tutor works? First of all, not all plugins are loaded. Only "enabled" plugins are loaded. If a plugin is present in the output of ``tutor plugins list``, then it can be enabled with::
+
+    tutor plugins enable mypluginname
+
+This command will add "mypluginname" to the list of enabled plugins. Once a plugin has been enabled, it will be marked as "✅ enabled" in the output of ``tutor plugins list``.
+
+The list of enabled plugins is actually a configuration setting named "PLUGINS". Thus, another way to check out all enabled plugins is to run::
+
+    tutor config printvalue PLUGINS
+
+Alternatively, the value of the "PLUGINS" setting can be obtained from the ``config.yml`` file in the Tutor project root::
+
+    cat "$(tutor config printroot)/config.yml"
+
+Since Tutor plugins are just Python modules, they can be ``import``ed by Tutor at runtime. And this is exactly what happens for enabled Tutor plugins: the imports are performed by the ``load``` functions that are declared inside the ``discover_module(path)`` and ``discover_package(entrypoint)`` functions from the `tutor.plugins.v1 <https://github.com/overhangio/tutor/blob/master/tutor/plugins/v1.py>`__ module. Again, these ``load`` functions are actually callbacks of an action called ``PLUGIN_LOADED``. Plugins are loaded in alphabetical order of their names.
+
+Module or package: which is the right one?
+------------------------------------------
+
+When creating a new Tutor plugin, should you go for a single file module or a full-fledged package? Let's look at the advantages and drawbacks of each:
+
+- Modules are extremely simple to create. Just run ``touch $(tutor plugins printroot)/myplugin.py`` and "myplugin" will appear in the list of installed plugins.
+- Modules cannot be composed of multiple files. So as soon as you will need to add new files to your plugin, you will need to convert your module to a package. This might be the case when you add custom templates or complex patches to your plugin (see below).
+- Packages can be distributed more easily, for instance on `pypi <https://pypi.org/>`__. Packaging also makes it easier to upgrade plugins (``pip install tutor-myplugin`` or ``tutor plugins upgrade myplugin``). Modules can be installed from a remote url (``tutor plugins install https://.../myplugin.py``) but it's difficult to track their versions or upgrade them in a consistent way.
+
+So which one is right for you? If you're not sure, you should start with a single file module. And once you need more modularity, or you are planning on distributing your plugin, then you should migrate to a package. The transition should be fairly straightforward for experienced Python developers.
+
+Creating a plugin
+-----------------
+
+Creating a plugin as a single file Python module is as simple as creating a file in the right directory::
+
+    touch "$(tutor plugins printroot)/myplugin.py"
+
+Creating a plugin as a Python package is a little more work. It is recommended to use the `Tutor plugin cookiecutter <https://github.com/overhangio/cookiecutter-tutor-plugin>`__. First, install the `cookiecutter <https://pypi.org/project/cookiecutter>`__ package::
+
+    pip install cookiecutter
+
+Then, use the official cookiecutter template to generate a plugin::
+
+    cookiecutter https://github.com/overhangio/cookiecutter-tutor-plugin.git
+
+Answer interactive questions to generate a plugin in the ``./tutor-contrib-myplugin`` directory. Then, install this plugin next to Tutor::
+
+    pip install -e ./tutor-contrib-myplugin
+
+And "myplugin" should appear in ``tutor plugins list``. Read the `Tutor plugin cookiecutter documentation <https://github.com/overhangio/cookiecutter-tutor-plugin#readme>`__ for more information.
+
+
 Hooks
 =====
 
@@ -232,94 +322,6 @@ Note how ``callback2`` is called after ``callback1``, despite the fact that ``ca
 
 In general, plugin authors should not have to bother about setting the priority of hook callbacks. But it's useful in some specific cases, such as when one plugin needs to supersede others. For instance, the content of settings files sometimes need to be ordered in a specific way; in Tutor, this would mean that some plugins need to add their callback functions to the ``ENV_PATCHES`` filter before others.
 
-Plugin fundamentals
-===================
-
-How does Tutor use hooks, and how can plugin developers use this API? We must first explain how Tutor performs plugin discovery and loading.
-
-Plugin discovery
-----------------
-
-Tutor plugins are listed with the following command::
-
-    tutor plugins list
-
-On a computer running Tutor v16, the command above will output something that is similar to the following::
-
-    NAME       	STATUS   	VERSION
-    android    	installed	16.0.0
-    cairn      	installed	16.0.3
-    credentials	✅ enabled	16.0.0
-    discovery  	✅ enabled	16.0.0
-    ecommerce  	installed	16.0.0
-    indigo     	installed	16.0.0
-    jupyter    	installed	16.0.1
-    mfe        	✅ enabled	16.1.1
-    minio      	installed	16.0.1
-    notes      	installed	16.0.1
-    sentry     	installed	/home/username/.local/share/tutor-plugins/sentry.py
-    webui      	✅ enabled	16.0.0
-    xqueue     	installed	16.0.1
-
-How does Tutor find out which plugins are available? There are two sources for plugin discovery:
-
-1. Modules: these are individual files which are stored in a specific directory. On Linux, it is ``~/.local/share/tutor-plugins``. This hard-coded location can be obtained by running ``tutor plugins printroot``. It can be overridden by defining the ``TUTOR_PLUGINS_ROOT`` environment variable. Any file that is stored in this directory is considered as a plugin. This is the case of the "sentry" plugin above.
-2. Packages: any installed Python package that includes an entrypoint named "tutor.plugin.v1" will be considered as a installed plugin. For instance, the "notes" plugin has the following entry in its `setup.py file <https://github.com/overhangio/tutor-notes/blob/master/setup.py>`__::
-
-    entry_points={"tutor.plugin.v1": ["notes = tutornotes.plugin"]}
-
-Discovery of both types of plugins is performed in the `tutor.plugins.v1 <https://github.com/overhangio/tutor/blob/master/tutor/plugins/v1.py>`__ module. To be precise, discovery is implemented in the ``_discover_module_plugins()`` and ``_discover_entrypoint_plugins()`` functions. Notice how these functions are actually callbacks of the ``CORE_READY`` action? We will be talking about that in a minute 😉
-
-Plugin loading
---------------
-
-Once plugins have been discovered, how are they loaded such that they can actually have an effect on how Tutor works? First of all, not all plugins are loaded. Only "enabled" plugins are loaded. If a plugin is present in the output of ``tutor plugins list``, then it can be enabled with::
-
-    tutor plugins enable mypluginname
-
-This command will add "mypluginname" to the list of enabled plugins. Once a plugin has been enabled, it will be marked as "✅ enabled" in the output of ``tutor plugins list``.
-
-The list of enabled plugins is actually a configuration setting named "PLUGINS". Thus, another way to check out all enabled plugins is to run::
-
-    tutor config printvalue PLUGINS
-
-Alternatively, the value of the "PLUGINS" setting can be obtained from the ``config.yml`` file in the Tutor project root::
-
-    cat "$(tutor config printroot)/config.yml"
-
-Since Tutor plugins are just Python modules, they can be ``import``ed by Tutor at runtime. And this is exactly what happens for enabled Tutor plugins: the imports are performed by the ``load``` functions that are declared inside the ``discover_module(path)`` and ``discover_package(entrypoint)`` functions from the `tutor.plugins.v1 <https://github.com/overhangio/tutor/blob/master/tutor/plugins/v1.py>`__ module. Again, these ``load`` functions are actually callbacks of an action called ``PLUGIN_LOADED``. Plugins are loaded in alphabetical order of their names.
-
-Module or package: which is the right one?
-------------------------------------------
-
-When creating a new Tutor plugin, should you go for a single file module or a full-fledged package? Let's look at the advantages and drawbacks of each:
-
-- Modules are extremely simple to create. Just run ``touch $(tutor plugins printroot)/myplugin.py`` and "myplugin" will appear in the list of installed plugins.
-- Modules cannot be composed of multiple files. So as soon as you will need to add new files to your plugin, you will need to convert your module to a package. This might be the case when you add custom templates or complex patches to your plugin (see below).
-- Packages can be distributed more easily, for instance on `pypi <https://pypi.org/>`__. Packaging also makes it easier to upgrade plugins (``pip install tutor-myplugin`` or ``tutor plugins upgrade myplugin``). Modules can be installed from a remote url (``tutor plugins install https://.../myplugin.py``) but it's difficult to track their versions or upgrade them in a consistent way.
-
-So which one is right for you? If you're not sure, you should start with a single file module. And once you need more modularity, or you are planning on distributing your plugin, then you should migrate to a package. The transition should be fairly straightforward for experienced Python developers.
-
-Creating a plugin
------------------
-
-Creating a plugin as a single file Python module is as simple as creating a file in the right directory::
-
-    touch "$(tutor plugins printroot)/myplugin.py"
-
-Creating a plugin as a Python package is a little more work. It is recommended to use the `Tutor plugin cookiecutter <https://github.com/overhangio/cookiecutter-tutor-plugin>`__. First, install the `cookiecutter <https://pypi.org/project/cookiecutter>`__ package::
-
-    pip install cookiecutter
-
-Then, use the official cookiecutter template to generate a plugin::
-
-    cookiecutter https://github.com/overhangio/cookiecutter-tutor-plugin.git
-
-Answer interactive questions to generate a plugin in the ``./tutor-contrib-myplugin`` directory. Then, install this plugin next to Tutor::
-
-    pip install -e ./tutor-contrib-myplugin
-
-And "myplugin" should appear in ``tutor plugins list``. Read the `Tutor plugin cookiecutter documentation <https://github.com/overhangio/cookiecutter-tutor-plugin#readme>`__ for more information.
 
 The Tutor hooks API
 ===================
