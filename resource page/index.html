@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edly Academy</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- navbar -->
+      <div class="navbar">
+        <a href="../mobile-menu/index.html" class="mobile-menu">
+          <img src="../static/images/bars-solid.svg" alt="menu" />
+        </a>
+        <div class="edly-logo-item">
+          <a class="edly-logo-link" href="../index.html">
+            <img
+              class="edly-logo"
+              src="../static/images/edly_logo.png"
+              alt="edly academy"
+            />
+          </a>
+          <div class="vertical-rule"></div>
+        </div>
+        <ul class="navbar-list">
+          <li><a href="">About</a></li>
+          <li><a href="">Contribute</a></li>
+        </ul>
+        <a href="" class="github-link">
+          <img
+            class="github-image"
+            src="../static/images/github_logo.png"
+            alt="github"
+          />
+          <p class="github-text">Edit on Github</p>
+        </a>
+      </div>
+      <!-- main section -->
+      <div class="main">
+        <div class="page-route">
+          <a href="../index.html">Home</a> /
+          <a href="" class="title-ref"></a>
+        </div>
+        <div class="intro">
+          <h1 class="heading"></h1>
+          <p class="description"></p>
+        </div>
+        <div class="target-audience">
+          <h2>Who is this for?</h2>
+        </div>
+        <div id="editor" class="code-editor"></div>
+        <div class="learning-outcomes">
+          <h2>What you'll learn</h2>
+        </div>
+        <div class="content"></div>
+      </div>
+      <!-- footer -->
+      <div class="footer">
+        <div class="footer-content">
+          <p class="email-label">
+            Get the latest resources, tips, and best practices directly in your
+            inbox
+          </p>
+          <form class="email" action="" method="post">
+            <input class="email-input" placeholder="Enter your email address" />
+            <button class="email-button" type="submit">Subscribe</button>
+          </form>
+          <div class="footer-nav-container">
+            <p class="footer-nav-text">Edly 2024 All rights reserved</p>
+            <a class="footer-nav-link"> Privacy Policy </a>
+            <a class="footer-nav-link"> Terms & Conditions </a>
+          </div>
+          <p class="footer-bottom-text">
+            edX and Open edX are registered trademarks of edX Inc
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js" type="module"></script>
+    <script src="../data.js" type="module"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+  </body>
+</html>

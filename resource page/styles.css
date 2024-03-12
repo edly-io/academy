@@ -1,0 +1,338 @@
+* {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+}
+
+/* body */
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-weight: 300;
+  line-height: 25px;
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+}
+/* navbar portion */
+.navbar {
+  padding: 0px 100px;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+  letter-spacing: 1.1px;
+}
+
+.mobile-menu {
+  display: none;
+  min-height: 25px;
+  min-width: 25px;
+  left: 50;
+  cursor: pointer;
+}
+
+.edly-logo-item {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.edly-logo-link {
+  cursor: pointer;
+}
+.edly-logo {
+  height: 50px;
+  width: 150px;
+  margin: 5px;
+}
+
+.vertical-rule {
+  min-height: 30px;
+  height: 50%;
+  width: 1px;
+  background-color: #e5e5e5;
+}
+.navbar-list {
+  min-width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+.navbar a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0px 10px;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.github-image {
+  height: 50px;
+  width: 60px;
+}
+.github-text {
+  color: #3574a7;
+}
+
+/* main content area */
+.main {
+  width: 60%;
+  padding: 50px 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main a {
+  color: black;
+}
+
+.heading {
+  text-transform: capitalize;
+}
+
+.description {
+  width: 90%;
+}
+.title-ref {
+  text-transform: capitalize;
+}
+
+.audience-list {
+  text-transform: capitalize;
+
+  line-height: 25px;
+}
+
+.outcomes-list {
+  text-transform: capitalize;
+
+  line-height: 25px;
+}
+/* code snippet  */
+.code-snippet-container {
+  width: 100%;
+}
+.snippet {
+  width: 95%;
+  height: 60vh;
+}
+
+.code-editor {
+  height: 50vh;
+  width: 95%;
+  font-size: 18px;
+}
+
+/* content */
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.video-content {
+  height: 60vh;
+  width: 100%;
+  border-radius: 20px;
+  margin: 10px 0px;
+}
+
+.content-description {
+  width: 90%;
+}
+
+/* footer */
+.footer {
+  padding: 0px 100px;
+  min-height: 400px;
+  height: auto;
+  background-color: #f4f4f4;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+.footer-content {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.email-label {
+  min-width: 200px;
+  width: 70%;
+  font-size: 20px;
+  color: black;
+  display: flex;
+  text-align: center;
+  margin: 20px;
+}
+
+.email {
+  display: flex;
+  min-width: 350px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+.email-input {
+  flex: 5;
+  height: 50px;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.email-button {
+  flex: 2;
+  height: 50px;
+  border: none;
+  background-color: #dd2024;
+  color: white;
+  width: 8%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+}
+.footer-nav-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+
+.footer-nav-text {
+  min-width: 200px;
+  text-align: center;
+  margin: 5px 0px;
+}
+.footer-nav-link {
+  min-width: 200px;
+  text-decoration: none;
+  color: #666;
+  cursor: pointer;
+  text-align: center;
+  margin: 3px 0px;
+}
+
+.footer-bottom-text {
+  margin: 10px;
+  text-align: center;
+}
+
+/* tablet view */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .navbar {
+    border-bottom: 0px;
+    padding: 0px 70px;
+  }
+  .github-text {
+    display: none;
+  }
+  .main {
+    width: auto;
+    padding: 30px 70px;
+  }
+
+  .footer {
+    padding: 0px 70px;
+  }
+  .email {
+    width: 90%;
+  }
+  .footer-nav-container {
+    flex-direction: column;
+    width: 80%;
+  }
+}
+
+/* mobile view */
+
+@media screen and (max-width: 425px) {
+  .navbar {
+    border-bottom: 0px;
+    padding: 0px 10px;
+    justify-content: flex-start;
+  }
+  .navbar-list {
+    display: none;
+  }
+  .github-link {
+    display: none;
+  }
+  .vertical-rule {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
+  .content-area {
+    padding: 0px 10px;
+  }
+
+  .main {
+    width: auto;
+    padding: 0px 10px;
+  }
+  .snippet {
+    height: 40vh;
+    width: 100%;
+  }
+
+  .video-content {
+    height: 50vh;
+  }
+  .description {
+    width: 100%;
+  }
+
+  .content-description {
+    width: 100%;
+  }
+  .footer {
+    height: auto;
+    padding: 0px 10px;
+  }
+  .footer-content {
+    width: 100%;
+  }
+
+  .email {
+    width: 50%;
+  }
+  .email-label {
+    font-weight: bold;
+  }
+
+  .footer-nav-container {
+    flex-direction: column;
+    width: 80%;
+  }
+}
