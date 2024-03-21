@@ -7,8 +7,6 @@ var resource_data = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
     category: "Technology",
     coming_soon: false,
-    code_snippet:
-      "/Users/rohansaeed/Desktop/edly-academy/images/code-snippet.png",
     target_audience: ["Managers", "Coders", "Bussiness Men"],
     learning_outcomes: ["optimize website", "ad-strategy"],
     video_title: "Lorem Ipsum Dolor",
@@ -19,12 +17,11 @@ var resource_data = [
   {
     id: 2,
     type: "guide",
-    name: "Web Development Fundamentals",
+    name: "Docker",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
     category: "Technology",
     coming_soon: false,
-    code_snippet: "",
   },
   {
     id: 3,
@@ -32,9 +29,14 @@ var resource_data = [
     name: "Web Development",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-
     category: "Coding",
     coming_soon: true,
+    target_audience: ["Managers", "Coders", "Bussiness Men"],
+    learning_outcomes: ["optimize website", "ad-strategy"],
+    video_title: "Lorem Ipsum Dolor",
+    video_link: "https://www.youtube.com/embed/W6NZfCO5SIk?si=GZvL_wxd3FlWeMx1",
+    video_description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
   },
   {
     id: 4,
@@ -43,7 +45,14 @@ var resource_data = [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
     category: "Coding",
-    coming_soon: true,
+    coming_soon: false,
+    external_link: "https://docs.tutor.edly.io/tutorials/theming.html",
+    target_audience: ["Managers", "Coders", "Bussiness Men"],
+    learning_outcomes: ["optimize website", "ad-strategy"],
+    video_title: "Lorem Ipsum Dolor",
+    video_link: "https://www.youtube.com/embed/W6NZfCO5SIk?si=GZvL_wxd3FlWeMx1",
+    video_description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
   },
 ];
 

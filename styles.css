@@ -15,36 +15,46 @@ body {
 }
 /* navbar portion */
 .navbar {
-  padding: 0px 100px;
-  min-height: 70px;
+  min-height: 60px;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   border-bottom: 1px solid #e5e5e5;
-  letter-spacing: 1.1px;
+  letter-spacing: 1.5px;
+  padding: 5px 120px;
+}
+.navbar a {
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-.mobile-menu {
+.mobile-menu-link {
   display: none;
   min-height: 25px;
   min-width: 25px;
-  left: 50;
   cursor: pointer;
+  position: absolute;
+  left: 10px;
 }
 
 .edly-logo-item {
   display: flex;
   flex-direction: row;
-  height: 100%;
   align-items: center;
   justify-content: center;
 }
 .edly-logo-link {
   cursor: pointer;
+  margin: 0px 5px;
+  display: flex;
+  align-items: center;
 }
 .edly-logo {
-  height: 50px;
-  width: 150px;
+  height: 55px;
+  width: 170px;
   margin: 5px;
 }
 
@@ -55,28 +65,24 @@ body {
   background-color: #e5e5e5;
 }
 .navbar-list {
-  min-width: 40%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
   list-style-type: none;
-  margin: 0px;
   padding: 0px;
 }
-.navbar a {
-  text-decoration: none;
+.navbar-list a {
   color: black;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 0px 10px;
+  margin: 0px 20px;
 }
 
 .github-link {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
+  margin-right: 20px;
 }
 .github-image {
   height: 50px;
@@ -88,29 +94,32 @@ body {
 
 /* main content area */
 .content-area {
-  padding: 50px 100px;
+  padding: 30px 120px;
   display: flex;
   flex-direction: column;
+}
+.resources-heading {
+  margin: 10px 0px 30px 0px;
+  font-size: 40px;
+  padding: 20px 0px;
 }
 /* filters */
 .filter {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
 .filter-left {
+  width: 100%;
   flex: 1;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-}
-.filter-right {
-  flex: 1;
+  justify-content: flex-start;
 }
 
 .filter-text {
+  font-weight: 200;
   min-width: 100px;
 }
 .filter-type {
@@ -119,7 +128,8 @@ body {
   align-items: flex-start;
   justify-content: center;
   position: relative;
-  min-width: 150px;
+  margin: 0px 20px;
+  font-weight: 400;
 }
 
 .resource-type-label {
@@ -188,7 +198,7 @@ input[type="radio"] {
 }
 
 /* content cards */
-.cards {
+.resources {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -198,13 +208,17 @@ input[type="radio"] {
 }
 .card {
   width: 25%;
-  min-height: 200px;
+  min-height: 250px;
   min-width: 300px;
   border: 1px solid #e5e5e5;
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 20px 20px 20px 0;
   padding: 30px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
   position: relative;
 }
 
@@ -225,6 +239,10 @@ input[type="radio"] {
   color: white;
 }
 
+.external-link-card {
+  cursor: auto;
+}
+
 .card-tag {
   display: flex;
   flex-direction: row;
@@ -234,11 +252,14 @@ input[type="radio"] {
   height: auto;
   min-width: 60px;
   margin: 0px;
-  padding: 0px 15px 0px 5px;
+  padding: 0px 20px 0px 15px;
   color: white;
   background-color: #3574a7;
   border-radius: 5px;
   text-transform: capitalize;
+}
+.card-tag-text {
+  margin: 8px;
 }
 
 .card-title {
@@ -275,6 +296,13 @@ input[type="radio"] {
   -webkit-box-orient: vertical;
 }
 
+.link-ref {
+  margin: 0px 10px;
+}
+.link {
+  height: 25px;
+  width: 25px;
+}
 /* tutorial portion */
 .tutorials {
   width: 100%;
@@ -282,17 +310,21 @@ input[type="radio"] {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 20px 5px;
 }
 
 .detail-box {
-  min-height: 200px;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
   width: 40%;
   min-width: 350px;
   padding: 20px 20px 20px 0px;
 }
 .tutorial-title {
+  font-size: 28px;
   text-transform: capitalize;
   margin: 10px 0;
 }
@@ -304,7 +336,7 @@ input[type="radio"] {
 .learn-more {
   margin: 5px 0;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: #dd2024;
   display: flex;
@@ -314,18 +346,17 @@ input[type="radio"] {
 
 /* footer */
 .footer {
-  padding: 0px 100px;
+  padding: 0px 120px;
   min-height: 400px;
   height: auto;
   background-color: #f4f4f4;
   display: flex;
-
   align-items: center;
   justify-content: center;
 }
 .footer-content {
   height: 100%;
-  width: 50%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -335,18 +366,15 @@ input[type="radio"] {
 
 .email-label {
   min-width: 200px;
-  width: 70%;
+  width: 50%;
   font-size: 20px;
   color: black;
   display: flex;
   text-align: center;
-  margin: 20px;
 }
-
 .email {
   display: flex;
-  min-width: 350px;
-  width: 100%;
+  width: 80%;
   align-items: center;
   justify-content: center;
   margin: 10px;
@@ -390,13 +418,16 @@ input[type="radio"] {
   text-align: center;
   margin: 5px 0px;
 }
-.footer-nav-link {
+.footer-nav-li {
   min-width: 200px;
   text-decoration: none;
   color: #666;
   cursor: pointer;
   text-align: center;
-  margin: 3px 0px;
+  margin: 5px 0px;
+}
+.footer-nav-link {
+  margin: 0px 20px;
 }
 
 .footer-bottom-text {
@@ -410,7 +441,7 @@ input[type="radio"] {
   .navbar {
     border-bottom: 0px;
     padding: 0px 10px;
-    justify-content: flex-start;
+    justify-content: center;
   }
   .navbar-list {
     display: none;
@@ -421,14 +452,21 @@ input[type="radio"] {
   .vertical-rule {
     display: none;
   }
-  .mobile-menu {
+  .mobile-menu-link {
     display: block;
   }
   .content-area {
     padding: 0px 10px;
   }
+  .filter {
+    flex-direction: column;
+  }
+  .filter-left {
+    justify-content: space-between;
+  }
 
   .filter-type {
+    /* min-width: 130px; */
     align-items: flex-end;
   }
 
@@ -463,15 +501,35 @@ input[type="radio"] {
   }
 
   .email {
-    width: 50%;
+    min-width: 300px;
+    width: 80%;
   }
   .email-label {
-    font-weight: bold;
+    width: 80%;
+    font-weight: 600;
+    font-size: 16px;
   }
 
   .footer-nav-container {
     flex-direction: column;
     width: 80%;
+    list-style-type: none;
+  }
+}
+
+/* breakpoint */
+@media screen and (min-width: 426px) and (max-width: 545px) {
+  .navbar-list {
+    display: none;
+  }
+  .github-link {
+    display: none;
+  }
+  .vertical-rule {
+    display: none;
+  }
+  .mobile-menu-link {
+    display: block;
   }
 }
 
@@ -502,11 +560,107 @@ input[type="radio"] {
   .footer {
     padding: 0px 70px;
   }
+  .footer-content {
+    width: 100%;
+  }
+
   .email {
     width: 90%;
   }
   .footer-nav-container {
     flex-direction: column;
     width: 80%;
+    list-style-type: none;
   }
+}
+
+/* mobile section */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 1;
+  background-color: white;
+  visibility: hidden;
+}
+
+.mobile-top {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.mobile-edly-logo-link {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-edly-logo {
+  height: 55px;
+  width: 170px;
+  margin: 5px;
+}
+
+.close-button {
+  margin: 5px;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+}
+.close-image {
+  height: 40px;
+  width: 40px;
+}
+
+.mobile-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  font-weight: bold;
+}
+
+.mobile-main a {
+  text-decoration: none;
+  color: black;
+  margin: 20px;
+}
+
+.mobile-bottom {
+  display: flex;
+  margin: 10px;
+}
+
+.mobile-github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.mobile-github-image {
+  height: 50px;
+  width: 60px;
+}
+.mobile-github-text {
+  color: #3574a7;
+  letter-spacing: 1.1px;
 }

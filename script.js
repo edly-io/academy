@@ -4,19 +4,19 @@ var resource_to_display = resource_data;
 
 //function to display the cards of any data
 function displayResources(resourcesData) {
-  const dataCont = document.getElementById("cards");
+  const dataCont = document.getElementById("resources");
   dataCont.innerHTML = "";
   for (let i in resourcesData) {
     let div = document.createElement("div");
     div.className = `card ${
       resourcesData[i].coming_soon ? "coming-soon-card" : " "
-    }`;
+    } ${resourcesData[i].external_link ? "external-link-card" : " "}`;
     var dyn_class = resourcesData[i].type === "video" ? "orange" : "green";
     div.innerHTML =
       `<div class="${dyn_class} card-tag">` +
       (resourcesData[i].type == "video"
-        ? "<img class='play' src='static/images/play-solid.svg' alt='play'><p>"
-        : "<img class='guide' src='static/images/file-lines.svg' alt='file'><p>") +
+        ? "<img class='play' src='static/images/play-solid.svg' alt='play'><p class='card-tag-text'>"
+        : "<img class='guide' src='static/images/file-lines.svg' alt='file'><p class='card-tag-text'>") +
       resourcesData[i].type +
       "</p></div>" +
       ` ${
@@ -26,6 +26,11 @@ function displayResources(resourcesData) {
       }` +
       "<h2 class='card-title'>" +
       resourcesData[i].name +
+      `${
+        resourcesData[i].external_link
+          ? `<a class='link-ref' href=${resourcesData[i].external_link} target='_blank' ><img class='link' src='static/images/link.svg' alt='link'></a>`
+          : " "
+      }` +
       "</h2><p class='card-desc'> " +
       resourcesData[i].description +
       "</p>";
@@ -60,17 +65,15 @@ window.onload = () => {
 
 // resource filter display
 var showResourceFilter = false;
-
 var resourceTypes = ["All", "Video", "Guide", "Tutorial", "Course"];
-
 const resourceButton = document.getElementById("resource-type-button");
+
 function resourceFilterToggle() {
   if (showResourceFilter) {
     showResourceFilter = false;
   } else {
     showResourceFilter = true;
   }
-
   const resourceFilter = document.getElementById("resource-type-filter");
   if (showResourceFilter) {
     resourceFilter.style.display = "block";
@@ -80,7 +83,6 @@ function resourceFilterToggle() {
 }
 
 resourceButton.addEventListener("click", resourceFilterToggle);
-
 const resourceFilter = document.getElementById("resource-type-filter");
 
 for (let filter of resourceTypes) {
@@ -89,14 +91,12 @@ for (let filter of resourceTypes) {
   div.innerHTML = `<input class='resource-type-input' type='radio' name="resourceRadioInput" ${
     filter === "All" ? "checked" : ""
   } }></input> <label class='form-check-label' for=${filter}>${filter}</label>`;
-
   resourceFilter.append(div);
 }
 
 //function to apply both filters when any of them changes
 function applyBothFilters(resourceType, topic, data) {
   var filteredData;
-
   if (resourceType == "All") {
     filteredData = data;
   } else {
@@ -104,7 +104,6 @@ function applyBothFilters(resourceType, topic, data) {
       return element.type.toLowerCase() === resourceType.toLowerCase();
     });
   }
-
   if (topic == "All") {
     filteredData = filteredData;
   } else {
@@ -118,7 +117,6 @@ function applyBothFilters(resourceType, topic, data) {
 
 //resource filter functionality
 var resourceFilterType = "All";
-
 resourceFilter.onchange = function (event) {
   const filterId = event.target.nextElementSibling.innerHTML;
   resourceFilterType = filterId;
@@ -133,7 +131,6 @@ resourceFilter.onchange = function (event) {
 
 //topics filter display
 var showTopicsFilter = false;
-
 function topicsFilterToggle() {
   if (showTopicsFilter) {
     showTopicsFilter = false;
@@ -169,11 +166,10 @@ for (let topic of topics) {
   div.innerHTML = `<input class='topic-input' type='radio' name="topicsRadioInput" ${
     topic === "All" ? "checked" : ""
   } }></input> <label class='form-check-label' for=${topic}>${topic}</label>`;
-
   topicsFilter.append(div);
 }
-//topics filter functionality
 
+//topics filter functionality
 var topicsFilterType = "All";
 topicsFilter.onchange = function (event) {
   const topicsType = event.target.nextElementSibling.innerHTML;
@@ -187,43 +183,46 @@ topicsFilter.onchange = function (event) {
   setBlogClickEvent();
 };
 
+//function to set click event on every resource card
 const setBlogClickEvent = () => {
-  setTimeout(() => {
-    const cards = Array.from(document.getElementsByClassName("card"));
-    cards.forEach((card) => {
-      const isComingSoon = Array.from(card.classList).includes(
-        "coming-soon-card"
-      );
-
-      if (!isComingSoon) {
-        card.addEventListener("click", (event) => {
-          const tag = card.querySelector(".card-tag p").innerHTML;
-          const name = card.querySelector(".card-title").innerHTML;
-
-          var dataToSend = { content: "blog", type: tag, name: name }; // Example data
-          var queryString = Object.keys(dataToSend)
-            .map((key) => key + "=" + dataToSend[key])
-            .join("&");
-
-          window.location.href = "resource page/index.html?" + queryString;
-        });
-      }
-    });
-  }, 1000);
-};
-
-const setTutorialClickEvent = () => {
-  setTimeout(() => {
-    const tutorials = Array.from(document.getElementsByClassName("detail-box"));
-    tutorials.forEach((tutorial) => {
-      tutorial.addEventListener("click", (event) => {
-        const name = tutorial.querySelector(".tutorial-title").innerHTML;
-        var dataToSend = { content: "tutorial", name: name };
-        var queryString = Object.keys(dataToSend)
-          .map((key) => key + "=" + dataToSend[key])
-          .join("&");
-        window.location.href = "resource page/index.html?" + queryString;
+  const cards = Array.from(document.getElementsByClassName("card"));
+  cards.forEach((card) => {
+    const isComingSoon = Array.from(card.classList).includes(
+      "coming-soon-card"
+    );
+    const isExternalLink = Array.from(card.classList).includes(
+      "external-link-card"
+    );
+    if (!isComingSoon && !isExternalLink) {
+      card.addEventListener("click", () => {
+        //right now, we have a dummy resource page, but the commented code can be used upon making different resource pages inside resource folder
+        // const name = card.querySelector(".card-title").innerHTML.toLowerCase();
+        // window.location.href = `resource/${name}`;
+        window.location.href = `resource/`;
       });
-    });
-  }, 1000);
+    }
+  });
 };
+
+//function to set up click event for the tutorials
+const setTutorialClickEvent = () => {
+  const tutorials = Array.from(document.getElementsByClassName("detail-box"));
+  tutorials.forEach((tutorial) => {
+    tutorial.addEventListener("click", () => {
+      // const name = tutorial.querySelector(".tutorial-title").innerHTML;
+      window.location.href = "resource/index.html";
+    });
+  });
+};
+
+//mobile menu display toggle
+const closeButton = document.querySelector(".close-button");
+const mobileMenu = document.querySelector(".mobile-menu");
+closeButton.addEventListener("click", (event) => {
+  mobileMenu.style.visibility = "hidden";
+});
+
+const menuButton = document.querySelector(".mobile-menu-link");
+menuButton.addEventListener("click", (event) => {
+  mobileMenu.style.visibility = "visible";
+});
