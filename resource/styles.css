@@ -14,39 +14,51 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: white;
+  position: relative;
 }
 /* navbar portion */
 .navbar {
-  padding: 0px 100px;
-  min-height: 70px;
+  min-height: 60px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   border-bottom: 1px solid #e5e5e5;
-  letter-spacing: 1.1px;
+  letter-spacing: 1.5px;
+  padding: 5px 120px;
+  position: relative;
+}
+.navbar a {
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-.mobile-menu {
+.mobile-menu-link {
   display: none;
   min-height: 25px;
   min-width: 25px;
-  left: 50;
   cursor: pointer;
+  position: absolute;
+  left: 10px;
 }
 
 .edly-logo-item {
   display: flex;
   flex-direction: row;
-  height: 100%;
+
   align-items: center;
   justify-content: center;
 }
 .edly-logo-link {
   cursor: pointer;
+  margin: 0px 5px;
+  display: flex;
+  align-items: center;
 }
 .edly-logo {
-  height: 50px;
-  width: 150px;
+  height: 55px;
+  width: 170px;
   margin: 5px;
 }
 
@@ -57,28 +69,24 @@ body {
   background-color: #e5e5e5;
 }
 .navbar-list {
-  min-width: 40%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
   list-style-type: none;
-  margin: 0px;
   padding: 0px;
 }
-.navbar a {
-  text-decoration: none;
+.navbar-list a {
   color: black;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 0px 10px;
+  margin: 0px 20px;
 }
 
 .github-link {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
+  margin-right: 20px;
 }
 .github-image {
   height: 50px;
@@ -91,7 +99,7 @@ body {
 /* main content area */
 .main {
   width: 60%;
-  padding: 50px 100px;
+  padding: 50px 120px;
   display: flex;
   flex-direction: column;
 }
@@ -157,7 +165,7 @@ body {
 
 /* footer */
 .footer {
-  padding: 0px 100px;
+  padding: 0px 120px;
   min-height: 400px;
   height: auto;
   background-color: #f4f4f4;
@@ -168,7 +176,7 @@ body {
 }
 .footer-content {
   height: 100%;
-  width: 50%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,7 +186,7 @@ body {
 
 .email-label {
   min-width: 200px;
-  width: 70%;
+  width: 50%;
   font-size: 20px;
   color: black;
   display: flex;
@@ -189,7 +197,7 @@ body {
 .email {
   display: flex;
   min-width: 350px;
-  width: 100%;
+  width: 80%;
   align-items: center;
   justify-content: center;
   margin: 10px;
@@ -239,38 +247,12 @@ body {
   color: #666;
   cursor: pointer;
   text-align: center;
-  margin: 3px 0px;
+  margin: 5px 0px;
 }
 
 .footer-bottom-text {
   margin: 10px;
   text-align: center;
-}
-
-/* tablet view */
-@media screen and (min-width: 426px) and (max-width: 768px) {
-  .navbar {
-    border-bottom: 0px;
-    padding: 0px 70px;
-  }
-  .github-text {
-    display: none;
-  }
-  .main {
-    width: auto;
-    padding: 30px 70px;
-  }
-
-  .footer {
-    padding: 0px 70px;
-  }
-  .email {
-    width: 90%;
-  }
-  .footer-nav-container {
-    flex-direction: column;
-    width: 80%;
-  }
 }
 
 /* mobile view */
@@ -279,7 +261,7 @@ body {
   .navbar {
     border-bottom: 0px;
     padding: 0px 10px;
-    justify-content: flex-start;
+    justify-content: center;
   }
   .navbar-list {
     display: none;
@@ -290,7 +272,7 @@ body {
   .vertical-rule {
     display: none;
   }
-  .mobile-menu {
+  .mobile-menu-link {
     display: block;
   }
   .content-area {
@@ -325,14 +307,152 @@ body {
   }
 
   .email {
-    width: 50%;
+    min-width: 300px;
+    width: 80%;
   }
   .email-label {
-    font-weight: bold;
+    width: 80%;
+    font-weight: 600;
+    font-size: 16px;
   }
 
   .footer-nav-container {
     flex-direction: column;
     width: 80%;
+    list-style-type: none;
   }
+}
+
+/* breakpoint */
+@media screen and (min-width: 426px) and (max-width: 545px) {
+  .navbar-list {
+    display: none;
+  }
+  .github-link {
+    display: none;
+  }
+  .vertical-rule {
+    display: none;
+  }
+  .mobile-menu-link {
+    display: block;
+  }
+}
+
+/* tablet view */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .navbar {
+    border-bottom: 0px;
+    padding: 0px 70px;
+  }
+  .github-text {
+    display: none;
+  }
+  .main {
+    width: auto;
+    padding: 30px 70px;
+  }
+
+  .footer {
+    padding: 0px 70px;
+  }
+  .email {
+    width: 90%;
+  }
+  .footer-nav-container {
+    flex-direction: column;
+    width: 80%;
+    list-style-type: none;
+  }
+}
+
+/* mobile section */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 1;
+  background-color: white;
+  visibility: hidden;
+}
+
+.mobile-top {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.mobile-edly-logo-link {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-edly-logo {
+  height: 55px;
+  width: 170px;
+  margin: 5px;
+}
+
+.close-button {
+  margin: 5px;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+}
+.close-image {
+  height: 40px;
+  width: 40px;
+}
+
+.mobile-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  font-weight: bold;
+}
+
+.mobile-main a {
+  text-decoration: none;
+  color: black;
+  margin: 20px;
+}
+
+.mobile-bottom {
+  display: flex;
+  margin: 10px;
+}
+
+.mobile-github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.mobile-github-image {
+  height: 50px;
+  width: 60px;
+}
+.mobile-github-text {
+  color: #3574a7;
+  letter-spacing: 1.1px;
 }
