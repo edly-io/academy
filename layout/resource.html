@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block css %}
+<!-- TODO deduplicate CSS -->
+<link rel="stylesheet" href="{{ URL_ROOT }}/static/css/resource.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
+<link rel="stylesheet" href="https://unpkg.com/highlightjs-copy@1.0.5/dist/highlightjs-copy.min.css" />
+<style>
+    code,
+    pre code.hljs,
+    pre code.hljs * {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+        font-size: 1em;
+        line-height: normal;
+    }
+</style>
+{% endblock%}
+
+{% block content %}
+<div class="main">
+    <div class="page-route">
+        <a href="{{ URL_ROOT }}">Home</a> /
+        <a href="" class="title-ref">{{ resource.title }}</a>
+    </div>
+    <!-- <div class="intro">
+        <h1 class="heading">{{ resource.title }}</h1>
+        <p class="description">{{ resource.description }}</p>
+    </div> -->
+    <!-- {% if "target_audience" is in resource %}
+    <div class="target-audience">
+        <h2>Who is this for?</h2>
+        <ul class="audience-list">
+            {% for audience in resource.target_audience %}
+            <li>{{ audience }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% if "learning_outcomes" is in resource %}
+    <div class="learning-outcomes">
+        <h2>What you'll learn</h2>
+        <ul>
+            {% for learning_outcome in resource.learning_outcomes %}
+            <li>{{ learning_outcome }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %} -->
+    <div class="content">
+        {{ resource_html|safe }}
+        <!-- {% if resource.video %}
+        <h2 class="content-heading">{{ resource.video.title }} </h2>
+        <iframe class="video-content" width="560" height="315" src="{{ resource.video.link }}"" title=" {{
+            resource.title }} - video" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        <p class="content-description">{{ resource.video.description }}</p>
+        {% endif %} -->
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<!-- Code highlighting -->
+{# https://github.com/arronhunt/highlightjs-copy #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://unpkg.com/highlightjs-copy@1.0.5/dist/highlightjs-copy.min.js"></script>
+<script>
+    hljs.addPlugin(new CopyButtonPlugin());
+    hljs.highlightAll();
+</script>
+{% endblock%}

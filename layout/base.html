@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edly Academy</title>
+    <link rel="icon" href="{{ URL_ROOT }}/static/images/favicon.png" />
+    {% block css %}{% endblock%}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="#" class="mobile-menu-link">
+                <img src="{{ URL_ROOT }}/static/images/bars-solid.svg" alt="menu" />
+            </a>
+            <div class="edly-logo-item">
+                <a class="edly-logo-link" href="{{ URL_ROOT }}">
+                    <img class="edly-logo" src="{{ URL_ROOT }}/static/images/edly_logo.png" alt="edly academy" />
+                </a>
+                <div class="vertical-rule"></div>
+            </div>
+            <ul class="navbar-list">
+                <li><a href="https://edly.io/why-edly/">About</a></li>
+                <li><a href="https://github.com/edly-io/academy">Contribute</a></li>
+            </ul>
+            <a href="https://github.com/edly-io/academy" class="github-link" target="_blank">
+                <img class="github-image" src="{{ URL_ROOT }}/static/images/github_logo.png" alt="github" />
+                <p class="github-text">Edit on GitHub</p>
+            </a>
+        </div>
+        <div class="mobile-menu">
+            <div class="mobile-top">
+                <a href="#" class="close-button">
+                    <img class="close-image" src="{{ URL_ROOT }}/static/images/xmark-solid.svg" alt="cross" />
+                </a>
+                <a class="mobile-edly-logo-link" href="{{ URL_ROOT }}">
+                    <img class="mobile-edly-logo" src="{{ URL_ROOT }}/static/images/edly_logo.png" alt="edly academy" />
+                </a>
+            </div>
+            <div class="mobile-main">
+                <a href="https://edly.io/why-edly/">About </a>
+                <a href="https://github.com/edly-io/academy">Contribute </a>
+            </div>
+            <div class="mobile-bottom">
+                <a href="https://github.com/edly-io/academy" class="mobile-github-link" target="_blank">
+                    <img class="mobile-github-image" src="{{ URL_ROOT }}/static/images/github_logo.png" alt="github" />
+                    <p class="mobile-github-text">Edit on GitHub</p>
+                </a>
+            </div>
+        </div>
+
+        {% block content %}{% endblock %}
+
+        <div class="footer">
+            <div class="footer-content">
+                <p class="email-label">
+                    Get the latest resources, tips, and best practices directly in your
+                    inbox
+                </p>
+                <form class="email" action="" method="post">
+                    <input class="email-input" placeholder="Enter your email address" />
+                    <button class="email-button" type="submit">Subscribe</button>
+                </form>
+                <div class="footer-nav-container">
+                    <p class="footer-nav-text">Edly 2024 All rights reserved</p>
+                    <li class="footer-nav-li">
+                        <a class="footer-nav-link"> Privacy Policy </a>
+                    </li>
+                    <li class="footer-nav-li">
+                        <a class="footer-nav-link"> Terms & Conditions </a>
+                    </li>
+                </div>
+                <p class="footer-bottom-text">
+                    edX and Open edX are registered trademarks of edX Inc
+                </p>
+            </div>
+        </div>
+    </div>
+    {% block js %}{% endblock%}
+    <script>
+        //mobile menu display toggles
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const closeButton = document.querySelector(".close-button");
+        closeButton.addEventListener("click", (event) => {
+            mobileMenu.style.visibility = "hidden";
+        });
+        const menuButton = document.querySelector(".mobile-menu-link");
+        menuButton.addEventListener("click", (event) => {
+            mobileMenu.style.visibility = "visible";
+        });
+    </script>
+    {% block footer %}{% endblock %}
+</body>
+
+</html>
