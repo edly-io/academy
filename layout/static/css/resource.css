@@ -139,12 +139,6 @@ body {
   height: 60vh;
 }
 
-.code-editor {
-  height: 50vh;
-  width: 95%;
-  font-size: 18px;
-}
-
 /* content */
 .content {
   display: flex;
