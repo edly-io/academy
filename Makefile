@@ -7,7 +7,6 @@ clean: ## Clean any existing site
 
 build: clean ## Build site
 	@python build.py
-	@rm -rf _build/academy/static
 	@cp -r layout/static _build/academy/static
 
 watch: build ## Watch for changes and build site

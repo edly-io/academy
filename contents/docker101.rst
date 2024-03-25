@@ -1,5 +1,3 @@
-.. _docker_tutorial:
-
 Docker 101
 ==========
 
@@ -502,7 +500,7 @@ Note: Avoid attempting to set environment variables using ``RUN export MY_VAR=so
 
    ENV PATH=/some/path:${PATH}
 
-Defined environment variables can be referenced using the `$VAR` syntax in subsequent instructions in the Dockerfile. This ensures a consistent and reliable way to manage environment configurations within your Docker image.
+Environment variables can then be referenced using the `$VAR` syntax in subsequent instructions in the Dockerfile. This ensures a consistent and reliable way to manage environment configurations within your Docker image.
 
 `CMD <https://docs.docker.com/engine/reference/builder/#cmd>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
