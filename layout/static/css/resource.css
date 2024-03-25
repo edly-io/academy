@@ -1,101 +1,3 @@
-* {
-  font-family: "Inter", sans-serif;
-  font-style: normal;
-}
-
-/* body */
-body {
-  margin: 0;
-  overflow-x: hidden;
-  font-weight: 300;
-  line-height: 25px;
-}
-.container {
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
-  position: relative;
-}
-/* navbar portion */
-.navbar {
-  min-height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  border-bottom: 1px solid #e5e5e5;
-  letter-spacing: 1.5px;
-  padding: 5px 120px;
-  position: relative;
-}
-.navbar a {
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.mobile-menu-link {
-  display: none;
-  min-height: 25px;
-  min-width: 25px;
-  cursor: pointer;
-  position: absolute;
-  left: 10px;
-}
-
-.edly-logo-item {
-  display: flex;
-  flex-direction: row;
-
-  align-items: center;
-  justify-content: center;
-}
-.edly-logo-link {
-  cursor: pointer;
-  margin: 0px 5px;
-  display: flex;
-  align-items: center;
-}
-.edly-logo {
-  height: 55px;
-  width: 170px;
-  margin: 5px;
-}
-
-.vertical-rule {
-  min-height: 30px;
-  height: 50%;
-  width: 1px;
-  background-color: #e5e5e5;
-}
-.navbar-list {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  list-style-type: none;
-  padding: 0px;
-}
-.navbar-list a {
-  color: black;
-  margin: 0px 20px;
-}
-
-.github-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: 20px;
-}
-.github-image {
-  height: 50px;
-  width: 60px;
-}
-.github-text {
-  color: #3574a7;
-}
-
 /* main content area */
 .main {
   width: 60%;
@@ -106,6 +8,10 @@ body {
 
 .main a {
   color: black;
+}
+
+.main p, .main ol, .main ul {
+  margin: 10px 0;
 }
 
 .heading {
@@ -130,14 +36,6 @@ body {
 
   line-height: 25px;
 }
-/* code snippet  */
-.code-snippet-container {
-  width: 100%;
-}
-.snippet {
-  width: 95%;
-  height: 60vh;
-}
 
 /* content */
 .content {
@@ -157,122 +55,7 @@ body {
   width: 90%;
 }
 
-/* footer */
-.footer {
-  padding: 0px 120px;
-  min-height: 400px;
-  height: auto;
-  background-color: #f4f4f4;
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-}
-.footer-content {
-  height: 100%;
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-}
-
-.email-label {
-  min-width: 200px;
-  width: 50%;
-  font-size: 20px;
-  color: black;
-  display: flex;
-  text-align: center;
-  margin: 20px;
-}
-
-.email {
-  display: flex;
-  min-width: 350px;
-  width: 80%;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-}
-.email-input {
-  flex: 5;
-  height: 50px;
-  border: none;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  padding-left: 10px;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-.email-button {
-  flex: 2;
-  height: 50px;
-  border: none;
-  background-color: #dd2024;
-  color: white;
-  width: 8%;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  text-transform: uppercase;
-  font-size: 12px;
-  cursor: pointer;
-}
-.footer-nav-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  align-items: center;
-  justify-content: space-evenly;
-  margin: 20px;
-}
-
-.footer-nav-text {
-  min-width: 200px;
-  text-align: center;
-  margin: 5px 0px;
-}
-.footer-nav-link {
-  min-width: 200px;
-  text-decoration: none;
-  color: #666;
-  cursor: pointer;
-  text-align: center;
-  margin: 5px 0px;
-}
-
-.footer-bottom-text {
-  margin: 10px;
-  text-align: center;
-}
-
-/* mobile view */
-
 @media screen and (max-width: 425px) {
-  .navbar {
-    border-bottom: 0px;
-    padding: 0px 10px;
-    justify-content: center;
-  }
-  .navbar-list {
-    display: none;
-  }
-  .github-link {
-    display: none;
-  }
-  .vertical-rule {
-    display: none;
-  }
-  .mobile-menu-link {
-    display: block;
-  }
-  .content-area {
-    padding: 0px 10px;
-  }
-
   .main {
     width: auto;
     padding: 0px 10px;
@@ -292,161 +75,13 @@ body {
   .content-description {
     width: 100%;
   }
-  .footer {
-    height: auto;
-    padding: 0px 10px;
-  }
-  .footer-content {
-    width: 100%;
-  }
-
-  .email {
-    min-width: 300px;
-    width: 80%;
-  }
-  .email-label {
-    width: 80%;
-    font-weight: 600;
-    font-size: 16px;
-  }
-
-  .footer-nav-container {
-    flex-direction: column;
-    width: 80%;
-    list-style-type: none;
-  }
 }
 
 /* breakpoint */
-@media screen and (min-width: 426px) and (max-width: 545px) {
-  .navbar-list {
-    display: none;
-  }
-  .github-link {
-    display: none;
-  }
-  .vertical-rule {
-    display: none;
-  }
-  .mobile-menu-link {
-    display: block;
-  }
-}
-
 /* tablet view */
 @media screen and (min-width: 426px) and (max-width: 768px) {
-  .navbar {
-    border-bottom: 0px;
-    padding: 0px 70px;
-  }
-  .github-text {
-    display: none;
-  }
   .main {
     width: auto;
     padding: 30px 70px;
   }
-
-  .footer {
-    padding: 0px 70px;
-  }
-  .email {
-    width: 90%;
-  }
-  .footer-nav-container {
-    flex-direction: column;
-    width: 80%;
-    list-style-type: none;
-  }
-}
-
-/* mobile section */
-
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  z-index: 1;
-  background-color: white;
-  visibility: hidden;
-}
-
-.mobile-top {
-  width: 100%;
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-.mobile-edly-logo-link {
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-.mobile-edly-logo {
-  height: 55px;
-  width: 170px;
-  margin: 5px;
-}
-
-.close-button {
-  margin: 5px;
-  cursor: pointer;
-  position: absolute;
-  left: 0;
-}
-.close-image {
-  height: 40px;
-  width: 40px;
-}
-
-.mobile-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1.1px;
-  font-weight: bold;
-}
-
-.mobile-main a {
-  text-decoration: none;
-  color: black;
-  margin: 20px;
-}
-
-.mobile-bottom {
-  display: flex;
-  margin: 10px;
-}
-
-.mobile-github-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 150px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.mobile-github-image {
-  height: 50px;
-  width: 60px;
-}
-.mobile-github-text {
-  color: #3574a7;
-  letter-spacing: 1.1px;
 }
