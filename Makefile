@@ -1,4 +1,5 @@
 .DEFAULT_GOAL := build
+DOCKER_TAG = docker.io/overhangio/academy:latest
 
 clean: ## Clean any existing site
 	rm -rf _build/
@@ -18,6 +19,16 @@ wait-for-change:
 serve: build ## Launch a development server
 	@echo "-----> http://localhost:8042/academy"
 	@python3 -m http.server --bind localhost 8042 -d _build
+
+docker-build: ## Build the Docker image
+	docker build --tag ${DOCKER_TAG} .
+
+docker-push: docker-build ## Push the Docker image to Docker Hub
+	docker push ${DOCKER_TAG}
+
+docker-run: docker-build ## Run the Docker container on port 8043
+	@echo "-----> http://localhost:8043/academy"
+	docker run --rm -p 127.0.0.1:8043:8043 ${DOCKER_TAG}
 
 ESCAPE = ^[
 help: ## Print this help
