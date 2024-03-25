@@ -1,5 +1,7 @@
 # Edly Academy
 
+This is the source code of the site that is hosted on https://edly.io/academy. Contributions are welcome: if you see a typo or would like to contribute some content, please open a pull request.
+
 ## Usage
 
 Install requirements:
