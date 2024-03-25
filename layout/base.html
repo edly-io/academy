@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edly Academy</title>
     <link rel="icon" href="{{ URL_ROOT }}/static/images/favicon.png" />
+    <link rel="stylesheet" href="{{ URL_ROOT }}/static/css/academy.css" />
     {% block css %}{% endblock%}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -66,18 +67,12 @@
                     <input class="email-input" placeholder="Enter your email address" />
                     <button class="email-button" type="submit">Subscribe</button>
                 </form>
-                <div class="footer-nav-container">
-                    <p class="footer-nav-text">Edly 2024 All rights reserved</p>
-                    <li class="footer-nav-li">
-                        <a class="footer-nav-link"> Privacy Policy </a>
-                    </li>
-                    <li class="footer-nav-li">
-                        <a class="footer-nav-link"> Terms & Conditions </a>
-                    </li>
+                <div class="footer-nav">
+                    <p>Edly 2024 All rights reserved</p>
+                    <p><a href="/privacy-policy/"> Privacy Policy </a></p>
+                    <p><a href="/terms-and-conditions/">Terms & Conditions</a></p>
                 </div>
-                <p class="footer-bottom-text">
-                    edX and Open edX are registered trademarks of edX Inc
-                </p>
+                <p class="footer-bottom-text">edX and Open edX are registered trademarks of edX Inc</p>
             </div>
         </div>
     </div>

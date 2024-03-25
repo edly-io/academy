@@ -1,19 +1,9 @@
 {% extends "base.html" %}
 {% block css %}
-<!-- TODO deduplicate CSS -->
 <link rel="stylesheet" href="{{ URL_ROOT }}/static/css/resource.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
 <link rel="stylesheet" href="https://unpkg.com/highlightjs-copy@1.0.5/dist/highlightjs-copy.min.css" />
-<style>
-    code,
-    pre code.hljs,
-    pre code.hljs * {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-        font-size: 1em;
-        line-height: normal;
-    }
-</style>
 {% endblock%}
 
 {% block content %}
