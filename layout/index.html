@@ -14,11 +14,11 @@
                 </div>
                 <div class="resource-type-filter invisible" id="resource-type-filter">
                     {% for resource_type in RESOURCE_TYPES %}
-                    <div class="resource-type-option">
+                    <li class="resource-type-option">
                         <input class='resource-type-input' type='radio' name="type" value="{{ resource_type }}" {% if
                             resource_type=="all" %}checked{% endif %}>
-                        <label>{{ resource_type }}</label>
-                    </div>
+                        <label class="resource-label">{{ resource_type }}</label>
+                    </li>
                     {% endfor %}
                 </div>
             </div>
@@ -29,11 +29,11 @@
                 </div>
                 <div class="categories-filter invisible" id="categories-filter">
                     {% for category in CATEGORIES %}
-                    <div class="category-option">
+                    <li class="category-option">
                         <input class='category-input' type='radio' name="category" value="{{ category }}" {% if
                             category=="all" %}checked{% endif %}>
-                        <label>{{ category }}</label>
-                    </div>
+                        <label class="category-label">{{ category }}</label>
+                    </li>
                     {% endfor %}
                 </div>
             </div>

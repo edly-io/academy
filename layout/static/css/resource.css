@@ -10,7 +10,9 @@
   color: black;
 }
 
-.main p, .main ol, .main ul {
+.main p,
+.main ol,
+.main ul {
   margin: 10px 0;
 }
 
@@ -27,13 +29,11 @@
 
 .audience-list {
   text-transform: capitalize;
-
   line-height: 25px;
 }
 
 .outcomes-list {
   text-transform: capitalize;
-
   line-height: 25px;
 }
 
@@ -44,15 +44,62 @@
   width: 100%;
 }
 
+.content-description {
+  width: 90%;
+}
+
+li::marker {
+  font-size: 14px;
+}
+
+/* video player portion */
+
 .video-content {
+  position: relative;
   height: 60vh;
   width: 100%;
   border-radius: 20px;
   margin: 10px 0px;
 }
 
-.content-description {
-  width: 90%;
+.play-container {
+  position: absolute;
+  left: 40%;
+  top: 35%;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(64, 78, 95, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 75px;
+  cursor: pointer;
+}
+
+.play-container:hover {
+  transform: scale(1.1);
+}
+.play-button {
+  height: 100px;
+  width: 100px;
+  margin-left: 20px;
+}
+
+.iframe {
+  height: 100%;
+  width: 100%;
+  display: none;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 20px;
+}
+
+.thumbnail {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 20px;
 }
 
 @media screen and (max-width: 425px) {

@@ -17,7 +17,7 @@ wait-for-change:
 
 serve: build ## Launch a development server
 	@echo "-----> http://localhost:8042/academy"
-	@python3 -m http.server --bind localhost 8042 -d _build
+	@python -m http.server --bind localhost 8042 -d _build
 
 docker-build: ## Build the Docker image
 	docker build --tag ${DOCKER_TAG} .

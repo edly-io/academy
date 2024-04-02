@@ -1,22 +1,28 @@
-{% extends "base.html" %}
-{% block css %}
+{% extends "base.html" %} {% block css %}
 <link rel="stylesheet" href="{{ URL_ROOT }}/static/css/resource.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
-<link rel="stylesheet" href="https://unpkg.com/highlightjs-copy@1.0.5/dist/highlightjs-copy.min.css" />
-{% endblock%}
-
-{% block content %}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/highlightjs-copy@1.0.5/dist/highlightjs-copy.min.css"
+/>
+{% endblock%} {% block content %}
 <div class="main">
-    <div class="page-route">
-        <a href="{{ URL_ROOT }}">Home</a> /
-        <a href="" class="title-ref">{{ resource.title }}</a>
-    </div>
-    <!-- <div class="intro">
+  <div class="page-route">
+    <a href="{{ URL_ROOT }}">Home</a> /
+    <a href="" class="title-ref">{{ resource.title }}</a>
+  </div>
+  <!-- <div class="intro">
         <h1 class="heading">{{ resource.title }}</h1>
         <p class="description">{{ resource.description }}</p>
     </div> -->
-    <!-- {% if "target_audience" is in resource %}
+  <!-- {% if "target_audience" is in resource %}
     <div class="target-audience">
         <h2>Who is this for?</h2>
         <ul class="audience-list">
@@ -36,27 +42,57 @@
         </ul>
     </div>
     {% endif %} -->
-    <div class="content">
-        {{ resource_html|safe }}
-        <!-- {% if resource.video %}
-        <h2 class="content-heading">{{ resource.video.title }} </h2>
-        <iframe class="video-content" width="560" height="315" src="{{ resource.video.link }}"" title=" {{
-            resource.title }} - video" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        <p class="content-description">{{ resource.video.description }}</p>
-        {% endif %} -->
+  <div class="content">
+    {{ resource_html|safe }}
+    <!-- {% if resource.video %}
+    <h2 class="content-heading">{{ resource.video.title }}</h2>
+    <div class="video-content">
+      <div class="play-container" id="play-container">
+        <img
+          src="{{ URL_ROOT }}/static/images/play-solid.svg"
+          alt=""
+          id="play-button"
+          class="play-button"
+        />
+      </div>
+      <img alt="thumbnail" id="thumbnail" class="thumbnail" />
+      <iframe
+        src="{{ resource.video.link }}"
+        title=" {{
+              resource.title }} - video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        id="iframe"
+        class="iframe"
+      ></iframe>
     </div>
+    <p class="content-description">{{ resource.video.description }}</p>
+    {% endif %} -->
+  </div>
 </div>
-{% endblock %}
-
-{% block js %}
+{% endblock %} {% block js %}
 <!-- Code highlighting -->
 {# https://github.com/arronhunt/highlightjs-copy #}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://unpkg.com/highlightjs-copy@1.0.5/dist/highlightjs-copy.min.js"></script>
 <script>
-    hljs.addPlugin(new CopyButtonPlugin());
-    hljs.highlightAll();
+  hljs.addPlugin(new CopyButtonPlugin());
+  hljs.highlightAll();
+  //play button functionality
+  const thumbnail = document.getElementById("thumbnail");
+  const iframe = document.getElementById("iframe");
+  const playButton = document.getElementById("play-container");
+  const videoId = iframe.src.split("/")[4].split("?")[0];
+  thumbnail.setAttribute(
+    "src",
+    `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
+  );
+  playButton.addEventListener("click", (event) => {
+    playButton.style.visibility = "hidden";
+    thumbnail.style.display = "none";
+    iframe.style.display = "block";
+    iframe.src += "?autoplay=1";
+  });
 </script>
 {% endblock%}
