@@ -27,6 +27,16 @@ RESOURCES = [
         # },
     },
     {
+        "title": "Install Open edX with Tutor",
+        "src": "openedx-install",
+        "description": "Step-by-step instructions for an installation from scratch on a production server. The last guide you will ever need to install Open edX.",
+        "type": "Tutorial",
+        "category": "Devops",
+        "target_audience": [],
+        "learning_outcomes": [],
+        "video": {}
+    },
+    {
         "title": "Tutor plugins",
         "src": "tutorplugins",
         "description": "Learn what Tutor plugins are, how to use them and how to create your own plugins.",
