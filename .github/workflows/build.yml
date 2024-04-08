@@ -1,10 +1,10 @@
-name: Build Docker image
+name: Build
 
 on: pull_request
 
 jobs:
   docker_build:
-    name: Push Docker image to Docker Hub
+    name: Build Docker image
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
