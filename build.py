@@ -27,6 +27,16 @@ RESOURCES = [
         # },
     },
     {
+        "title": "What is Tutor?",
+        "src": "what-is-tutor",
+        "description": "Why does Tutor exist and how does it work?",
+        "type": "Guide",
+        "category": "General",
+        "target_audience": [],
+        "learning_outcomes": [],
+        "video": {}
+    },
+    {
         "title": "Install Open edX with Tutor",
         "src": "openedx-install",
         "description": "Step-by-step instructions for an installation from scratch on a production server. The last guide you will ever need to install Open edX.",
