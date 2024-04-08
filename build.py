@@ -47,6 +47,16 @@ RESOURCES = [
         "video": {}
     },
     {
+        "title": "Running Open edX at scale",
+        "src": "https://docs.tutor.edly.io/tutorials/scale.html",
+        "type": "Guide",
+        "description": "What happens when your monthly active users are multiplied by 10, 100, 1000? Follow this short guide to find out.",
+        "category": "Devops",
+        "target_audience": [],
+        "learning_outcomes": [],
+        "video": {}
+    },
+    {
         "title": "Open edX installation speedrun",
         "src": "https://www.youtube.com/watch?v=eXPFx_h1hn4",
         "type": "Video",
