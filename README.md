@@ -6,8 +6,15 @@ This is the source code of the site that is hosted on https://edly.io/academy. C
 
 Install requirements:
 
-    sudo apt install pandoc
-    pip install -r requirements.in
+- For Linux:
+
+        sudo apt install pandoc
+        pip install -r requirements.txt
+
+- For macOS:
+
+        brew install pandoc
+        pip install -r requirements.txt
 
 Build the static website:
 
