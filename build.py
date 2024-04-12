@@ -12,14 +12,24 @@ ROOT_PATH = "academy"
 BUILD_DIR = os.path.join(HERE, "_build", ROOT_PATH)
 
 RESOURCES = [
+    # Resource template
+    # {
+    #     # mandatory
+    #     "title": "My Title",
+    #     "src": "filename or url",
+    #     "description": "Will be trimmed to 3 lines",
+    #     "type": "Tutorial/Guide/Video/Analysis",
+    #     "category": "General/Development/DevOps/User experience",
+    #     # optional
+    #     "target_audience": [],
+    #     "learning_outcomes": [],
+    # },
     {
         "title": "Docker 101",
         "src": "docker101",
         "description": "Learn the basics of Docker and Docker Compose in this general, beginner-level tutorial.",
         "type": "Tutorial",
         "category": "Development",
-        "target_audience": [],
-        "learning_outcomes": [],
     },
     {
         "title": "What is Tutor?",
@@ -27,8 +37,6 @@ RESOURCES = [
         "description": "Why does Tutor exist and how does it work?",
         "type": "Video",
         "category": "General",
-        "target_audience": [],
-        "learning_outcomes": [],
     },
     {
         "title": "Install Open edX with Tutor",
@@ -36,8 +44,6 @@ RESOURCES = [
         "description": "Step-by-step instructions for an installation from scratch on a production server. The last guide you will ever need to install Open edX.",
         "type": "Video",
         "category": "Devops",
-        "target_audience": [],
-        "learning_outcomes": [],
     },
     {
         "title": "Tutor plugins",
@@ -45,8 +51,6 @@ RESOURCES = [
         "description": "Learn what Tutor plugins are, how to use them and how to create your own plugins.",
         "type": "Guide",
         "category": "Devops",
-        "target_audience": [],
-        "learning_outcomes": [],
     },
     {
         "title": "Changing the appearance of Open edX",
@@ -54,8 +58,6 @@ RESOURCES = [
         "type": "Tutorial",
         "description": "Customize the visual appearance of your Open edX platform with comprehensive theming.",
         "category": "UI/UX",
-        "target_audience": [],
-        "learning_outcomes": [],
     },
     {
         "title": "Running Open edX at scale",
@@ -63,8 +65,6 @@ RESOURCES = [
         "type": "Guide",
         "description": "What happens when your monthly active users are multiplied by 10, 100, 1000? Follow this short guide to find out.",
         "category": "Devops",
-        "target_audience": [],
-        "learning_outcomes": [],
     },
     {
         "title": "Open edX installation speedrun",
@@ -72,8 +72,13 @@ RESOURCES = [
         "type": "Video",
         "description": "How fast can we install Open edX on a live production server? Watch this video to find out :)",
         "category": "Devops",
-        "target_audience": [],
-        "learning_outcomes": [],
+    },
+    {
+        "title": "Reaching 50k concurrent users on Open edX with Oracle Cloud",
+        "src": "project-50k",
+        "description": "Read all about this achievement in this interview of the Edly DevOps team.",
+        "type": "Analysis",
+        "category": "DevOps",
     },
 ]
 
@@ -101,7 +106,9 @@ def build_content_docs():
             dst_path = os.path.join(CONTENTS_ROOT, "_build", f"{resource['src']}.html")
             ensure_file_directory_exists(dst_path)
             print(f"Converting {src_path} -> {dst_path}...")
-            subprocess.check_call(["pandoc", src_path, "-o", dst_path])
+            subprocess.check_call(
+                ["pandoc", "--shift-heading-level-by=2", src_path, "-o", dst_path]
+            )
 
 
 def render_site(environment):

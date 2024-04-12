@@ -1,7 +1,3 @@
-=============
-Tutor plugins
-=============
-
 Prerequisites
 =============
 
