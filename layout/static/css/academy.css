@@ -250,7 +250,7 @@ img.arrow {
   min-width: 320px;
   border: 1px solid #e5e5e5;
   border-radius: 20px;
-  margin: 20px auto 20px 0;
+  margin: 20px 55px 20px 0;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -395,7 +395,7 @@ img.arrow {
 
 /* footer */
 .footer {
-  padding: 0px 120px;
+  padding: 30px 120px;
   min-height: 400px;
   height: auto;
   background-color: #f4f4f4;

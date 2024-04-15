@@ -93,15 +93,7 @@
             Get the latest resources, tips, and best practices directly in your
             inbox
           </p>
-          <!-- <form class="email" action="" method="post"> -->
-          <form class="email" action="#">
-            <input
-              class="email-input"
-              type="email"
-              placeholder="Enter your email address"
-            />
-            <button class="email-button" type="submit">Subscribe</button>
-          </form>
+
           <div class="footer-nav">
             <p>Edly 2024 All rights reserved</p>
             <p><a href="/privacy-policy/"> Privacy Policy </a></p>
@@ -114,6 +106,19 @@
       </div>
     </div>
     {% block js %}{% endblock%}
+
+    <script
+      charset="utf-8"
+      type="text/javascript"
+      src="//js.hsforms.net/forms/embed/v2.js"
+    ></script>
+    <script>
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "14529077",
+        formId: "8471b02a-3592-4672-a0cf-9c0bfeca7712",
+      });
+    </script>
     <script>
       //mobile menu display toggles
       const mobileMenu = document.querySelector(".mobile-menu");
@@ -126,24 +131,14 @@
         mobileMenu.style.visibility = "visible";
       });
 
-      //email subscription
-      const emailButton = document.querySelector(".email-button");
-      const emailInput = document.querySelector(".email-input");
-      const validateEmail = (email) => {
-        return email.match(
-          /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        );
-      };
-      emailButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        const emailInputValue = emailInput.value;
-        emailInput.value = "";
-        if (validateEmail(emailInputValue)) {
-          alert("subscription email sent to " + emailInputValue);
-        } else {
-          alert("enter valid email");
-        }
-      });
+      // email subscription form placement in the footer
+      const hubspotForm = document.querySelector(".hbspt-form");
+      const footerContent = document.querySelector(".footer-content");
+      const footerNav = document.querySelector(".footer-nav");
+      footerContent.insertBefore(hubspotForm, footerNav);
+
+      //set width of email subscription
+      hubspotForm.style.width = "80%";
     </script>
     {% block footer %}{% endblock %}
   </body>
