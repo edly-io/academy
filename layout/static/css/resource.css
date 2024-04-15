@@ -93,15 +93,6 @@ li::marker {
   padding: 0px;
   border-radius: 20px;
 }
-
-.thumbnail {
-  height: 100%;
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
-  border-radius: 20px;
-}
-
 @media screen and (max-width: 425px) {
   .main {
     width: auto;
