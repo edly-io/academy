@@ -79,20 +79,5 @@
 <script>
   hljs.addPlugin(new CopyButtonPlugin());
   hljs.highlightAll();
-  //play button functionality
-  const thumbnail = document.getElementById("thumbnail");
-  const iframe = document.getElementById("iframe");
-  const playButton = document.getElementById("play-container");
-  const videoId = iframe.src.split("/")[4].split("?")[0];
-  thumbnail.setAttribute(
-    "src",
-    `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
-  );
-  playButton.addEventListener("click", (event) => {
-    playButton.style.visibility = "hidden";
-    thumbnail.style.display = "none";
-    iframe.style.display = "block";
-    iframe.src += "?autoplay=1";
-  });
 </script>
 {% endblock%}

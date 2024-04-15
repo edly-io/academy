@@ -12,22 +12,22 @@
                     <p>Resource type</p>
                     <img class="arrow" src="{{ URL_ROOT }}/static/images/chevron-down-solid.svg" />
                 </div>
-                <div class="resource-type-filter invisible" id="resource-type-filter">
+                <ul class="resource-type-filter invisible" id="resource-type-filter">
                     {% for resource_type in RESOURCE_TYPES %}
                     <li class="resource-type-option">
                         <input class='resource-type-input' type='radio' name="type" value="{{ resource_type }}" {% if
                             resource_type=="all" %}checked{% endif %}>
                         <label class="resource-label">{{ resource_type }}</label>
-                    </li>
+                        </li>
                     {% endfor %}
-                </div>
+                </ul>
             </div>
             <div class="filter-type">
                 <div id="categories-button" class="categories-label">
                     <p>Topics</p>
                     <img class="arrow" src="{{ URL_ROOT }}/static/images/chevron-down-solid.svg" />
                 </div>
-                <div class="categories-filter invisible" id="categories-filter">
+                <ul class="categories-filter invisible" id="categories-filter">
                     {% for category in CATEGORIES %}
                     <li class="category-option">
                         <input class='category-input' type='radio' name="category" value="{{ category }}" {% if
@@ -35,7 +35,7 @@
                         <label class="category-label">{{ category }}</label>
                     </li>
                     {% endfor %}
-                </div>
+                </ul>
             </div>
         </div>
     </div>
