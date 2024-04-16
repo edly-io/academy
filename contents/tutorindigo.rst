@@ -28,8 +28,11 @@ To change platform logo and image, Replace or add images in ``tutorindigo/templa
 Font family for LMS can be changed as below:
     - Add downloaded font files in the ``tutorindigo/templates/indigo/lms/static/fonts`` folder and adjust their path in ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_fonts.scss`` file 
     - In case of Google font URL, include URL in the ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_fonts.scss`` file (Optional)
-    - Then, In ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_extras.scss`` file, add the line ``@import "fonts"`` so that the font will be loaded in the LMS platform
+    - Then, In ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_extras.scss`` file, add the line ``@import "fonts";`` so that the font will be loaded in the LMS platform
     - Set font family in ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_variables.scss`` file.
+
+CMS requires one more step in addition to above steps for changing font family.
+    - Include ``@import "fonts";`` in ``tutor-indigo/tutorindigo/templates/indigo/cms/static/sass/partials/cms/theme/_variables-v1.scss`` file after ``$static-path`` definition.
 
 3. Sass Styles Adjustments
 --------------------------
