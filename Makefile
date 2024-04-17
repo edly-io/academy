@@ -6,8 +6,8 @@ clean: ## Clean any existing site
 	rm -rf contents/_build
 
 build: clean ## Build site
-	@python build.py
-	@cp -r layout/static _build/academy/static
+	python build.py
+	cp -r layout/static _build/academy/static
 
 watch: build ## Watch for changes and build site
 	while true; do $(MAKE) wait-for-change build || true; done
