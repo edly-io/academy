@@ -34,4 +34,4 @@ jobs:
           aws-region: ${{ secrets.ACADEMY_S3_REGION }}
 
       - name: Sync build assets with S3
-        run: aws s3 sync --delete _build/academy/ s3://${{ secrets.ACADEMY_S3_BUCKET }}
+        run: aws s3 sync --delete _build/academy/ s3://${{ secrets.ACADEMY_S3_BUCKET }}/academy/
