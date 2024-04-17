@@ -1,6 +1,6 @@
-=======================================
-Tutor Indigo - Theme Plugin for Openedx
-=======================================
+================================================================
+Tutor Indigo - Customize the user experience by branding OpenedX
+================================================================
 
 Tutor Indigo is a theme designed for use with Tutor, to give a new look to Openedx platform. To install and activate the Indigo plugin, use the following commands::
 
@@ -13,7 +13,7 @@ By default when tutor is installed, the Indigo theme will be installed along it 
 Customization
 =============
 
-Customization options include modifying settings such as the welcome message, primary color, and footer navigation links. These settings can be adjusted using the ``tutor config save --set INDIGO_*=`` command.
+The theme can be customized according to your branding assets. Customization options include modifying settings such as the welcome message, primary color, and footer navigation links. These settings can be adjusted using the ``tutor config save --set INDIGO_*=`` command.
 
 For deeper customization, the plugin can serve as a foundation for creating custom themes. Forking the repository and making modifications allows for tailored designs. Changes can be viewed instantly in development mode using tutor dev commands. Here's how you can customize using Tutor Indigo.
 
@@ -64,3 +64,5 @@ To deploy the above customizations to production, rebuild the "openedx" Docker i
     tutor images build openedx
     tutor images build mfe
     tutor local start -d
+
+Tutor Indigo offers a comprehensive toolkit for enhancing and personalizing the Open edX platform. By following the above steps, you can tailor the platform's appearance to better suit your organization's needs and branding requirements.
