@@ -1,6 +1,7 @@
 # Build site and sync with S3
 # To test this action with act (https://github.com/nektos/act) run:
 # act --secret ACADEMY_S3_ACCESS_KEY_ID=xxx --secret ACADEMY_S3_SECRET_ACCESS_KEY=xxx --secret ACADEMY_S3_REGION=xxx --secret ACADEMY_S3_BUCKET=xxx
+# Note however that the aws binary is not available in self-hosted runners.
 name: Deploy to S3
 
 on:
@@ -19,7 +20,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Install system requirements
-        run: apt update && apt install -y pandoc
+        run: sudo apt update && sudo apt install -y pandoc
 
       - name: Build site
         run: make build
