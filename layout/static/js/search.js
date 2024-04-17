@@ -3,10 +3,16 @@ const no_filter = "all";
 function applySearchFilters() {
   for (let card of document.getElementsByClassName("card")) {
     let visible = true;
-    if (categoriesFilterValue != no_filter && categoriesFilterValue != card.getAttribute("attr-category")) {
+    if (
+      categoriesFilterValue != no_filter &&
+      categoriesFilterValue != card.getAttribute("attr-category")
+    ) {
       visible = false;
     }
-    if (resourceTypeFilterValue != no_filter && resourceTypeFilterValue != card.getAttribute("attr-resource-type")) {
+    if (
+      resourceTypeFilterValue != no_filter &&
+      resourceTypeFilterValue != card.getAttribute("attr-resource-type")
+    ) {
       visible = false;
     }
     card.style.display = visible ? "flex" : "none";
@@ -36,25 +42,45 @@ function displayTutorials(tutorialsData) {
 // Filter by resource type
 const resourceFilter = document.getElementById("resource-type-filter");
 var resourceTypeFilterValue = no_filter;
-resourceFilter.onchange = function (event) {
-  resourceTypeFilterValue = event.target.nextElementSibling.innerHTML;
-  resourceFilterToggle();
-  applySearchFilters();
-};
+
+for (let option of document.getElementsByClassName("resource-type-option")) {
+  option.addEventListener("click", (event) => {
+    resourceTypeFilterValue = event.currentTarget.lastElementChild.innerHTML;
+    resourceFilterToggle();
+    applySearchFilters();
+
+    const input = event.currentTarget.firstElementChild;
+
+    input.checked = true;
+  });
+}
+
 function resourceFilterToggle() {
   resourceFilter.classList.toggle("invisible");
 }
-document.getElementById("resource-type-button").addEventListener("click", resourceFilterToggle);
+document
+  .getElementById("resource-type-button")
+  .addEventListener("click", resourceFilterToggle);
 
 // Filter by category
 const categoriesFilter = document.getElementById("categories-filter");
 var categoriesFilterValue = no_filter;
-categoriesFilter.onchange = function (event) {
-  categoriesFilterValue = event.target.value;
-  categoriesFilterToggle();
-  applySearchFilters();
-};
+
+for (let option of document.getElementsByClassName("category-option")) {
+  option.addEventListener("click", (event) => {
+    categoriesFilterValue = event.currentTarget.lastElementChild.innerHTML;
+    categoriesFilterToggle();
+    applySearchFilters();
+
+    const input = event.currentTarget.firstElementChild;
+
+    input.checked = true;
+  });
+}
+
 function categoriesFilterToggle() {
   categoriesFilter.classList.toggle("invisible");
 }
-document.getElementById("categories-button").addEventListener("click", categoriesFilterToggle);
+document
+  .getElementById("categories-button")
+  .addEventListener("click", categoriesFilterToggle);
