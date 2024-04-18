@@ -35,3 +35,6 @@ jobs:
 
       - name: Sync build assets with S3
         run: aws s3 sync --delete _build/academy/ s3://${{ secrets.ACADEMY_S3_BUCKET }}/academy/
+
+      - name: Clear cloudfront cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.ACADEMY_CLOUDFRONT_DISTRIBUTION }} --paths "/academy/*"
