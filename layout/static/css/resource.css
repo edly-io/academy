@@ -54,12 +54,14 @@ li::marker {
 
 /* video player portion */
 
-.video-content {
-  position: relative;
-  height: 60vh;
-  width: 100%;
-  border-radius: 20px;
-  margin: 10px 0px;
+.content .video {
+  margin: 20px auto;
+}
+
+.content .video iframe {
+  width: 560px;
+  height: 315px;
+  max-width: 100%;
 }
 
 .play-container {
