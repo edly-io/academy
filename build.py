@@ -117,7 +117,7 @@ def render_site(environment):
             render_to(
                 environment,
                 "resource.html",
-                os.path.join("resource", src, "index.html"),
+                os.path.join(src, "index.html"),
                 resource=resource,
                 resource_html=resource_html,
             )

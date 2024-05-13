@@ -45,7 +45,7 @@
             attr-resource-type="{{ resource.type }}" attr-category="{{ resource.category }}">
             <a {% if not resource.src %} href="" {% elif resource.src.startswith('http') %}
                 href="{{ resource.src }}" target=_blank {% else %}
-                href="{{ URL_ROOT }}/resource/{{ resource.src }}" {% endif %}>
+                href="{{ URL_ROOT }}/{{ resource.src }}" {% endif %}>
                 <div class="card-tag {% if resource.type == 'Video' %}orange{% else %}green{% endif %}">
                     {% if resource.type == "Video" %}
                     <img class="play" src="{{ URL_ROOT}}/static/images/play-solid.svg" alt="play">
