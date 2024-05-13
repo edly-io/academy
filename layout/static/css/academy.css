@@ -52,7 +52,7 @@ body {
 
 .edly-logo-link {
   cursor: pointer;
-  margin: 0px 5px;
+  margin-right: 5px;
   display: flex;
   align-items: center;
 }
@@ -60,7 +60,6 @@ body {
 .edly-logo {
   height: 55px;
   width: 170px;
-  margin: 5px;
 }
 
 .vertical-rule {
@@ -89,7 +88,6 @@ body {
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  margin-right: 20px;
 }
 
 .github-image {
@@ -239,7 +237,7 @@ img.arrow {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -249,7 +247,7 @@ img.arrow {
   min-width: 320px;
   border: 1px solid #e5e5e5;
   border-radius: 20px;
-  margin: 20px 55px 20px 0;
+  margin: 20px 0;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -373,7 +371,6 @@ img.arrow {
 
 .tutorial-title {
   font-size: 28px;
-  text-transform: capitalize;
   margin: 10px 0;
 }
 
