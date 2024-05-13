@@ -20,11 +20,6 @@ RESOURCES = [
         "category": "Development",
         "target_audience": [],
         "learning_outcomes": [],
-        "video": {},
-        #     "title": "Lorem Ipsum Dolor",
-        #     "link": "https://www.youtube.com/embed/W6NZfCO5SIk?si=GZvL_wxd3FlWeMx1",
-        #     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-        # },
     },
     {
         "title": "What is Tutor?",
@@ -34,7 +29,6 @@ RESOURCES = [
         "category": "General",
         "target_audience": [],
         "learning_outcomes": [],
-        "video": {}
     },
     {
         "title": "Install Open edX with Tutor",
@@ -44,7 +38,6 @@ RESOURCES = [
         "category": "Devops",
         "target_audience": [],
         "learning_outcomes": [],
-        "video": {}
     },
     {
         "title": "Tutor plugins",
@@ -54,7 +47,6 @@ RESOURCES = [
         "category": "Devops",
         "target_audience": [],
         "learning_outcomes": [],
-        "video": {}
     },
     {
         "title": "Changing the appearance of Open edX",
@@ -64,7 +56,6 @@ RESOURCES = [
         "category": "UI/UX",
         "target_audience": [],
         "learning_outcomes": [],
-        "video": {}
     },
     {
         "title": "Running Open edX at scale",
@@ -74,7 +65,6 @@ RESOURCES = [
         "category": "Devops",
         "target_audience": [],
         "learning_outcomes": [],
-        "video": {}
     },
     {
         "title": "Open edX installation speedrun",
@@ -84,7 +74,6 @@ RESOURCES = [
         "category": "Devops",
         "target_audience": [],
         "learning_outcomes": [],
-        "video": {}
     },
 ]
 

@@ -44,31 +44,6 @@
     {% endif %} -->
   <div class="content">
     {{ resource_html|safe }}
-    <!-- {% if resource.video %}
-    <h2 class="content-heading">{{ resource.video.title }}</h2>
-    <div class="video-content">
-      <div class="play-container" id="play-container">
-        <img
-          src="{{ URL_ROOT }}/static/images/play-solid.svg"
-          alt=""
-          id="play-button"
-          class="play-button"
-        />
-      </div>
-      <img alt="thumbnail" id="thumbnail" class="thumbnail" />
-      <iframe
-        src="{{ resource.video.link }}"
-        title=" {{
-              resource.title }} - video"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        id="iframe"
-        class="iframe"
-      ></iframe>
-    </div>
-    <p class="content-description">{{ resource.video.description }}</p>
-    {% endif %} -->
   </div>
 </div>
 {% endblock %} {% block js %}
