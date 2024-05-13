@@ -41,7 +41,7 @@ RESOURCES = [
     },
     {
         "title": "Tutor plugins",
-        "src": "tutorplugins",
+        "src": "tutor-plugins",
         "description": "Learn what Tutor plugins are, how to use them and how to create your own plugins.",
         "type": "Guide",
         "category": "Devops",
