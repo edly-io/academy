@@ -86,6 +86,16 @@ RESOURCES = [
         "learning_outcomes": [],
         "video": {}
     },
+    {
+        "title": "Tutor Indigo",
+        "src": "tutorindigo",
+        "type": "Guide",
+        "description": "Tutor Indigo is a theme designed for use with Tutor, to give a new look to Openedx platform",
+        "category": "UI/UX",
+        "target_audience": [],
+        "learning_outcomes": [],
+        "video": {}
+    },
 ]
 
 VARIABLES = {
