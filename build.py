@@ -75,6 +75,16 @@ RESOURCES = [
         "target_audience": [],
         "learning_outcomes": [],
     },
+    {
+        "title": "Intellij Idea/Pycharm run configuration",
+        "src": "intellij",
+        "description": "Learn to debug openedx with Intellij Idea/Pycharm.",
+        "type": "Tutorial",
+        "category": "Development",
+        "target_audience": [],
+        "learning_outcomes": [],
+        "video": {},
+    },
 ]
 
 VARIABLES = {
