@@ -1,21 +1,33 @@
 /* main content area */
 .main {
-  width: 60%;
-  padding: 50px 120px;
+  width: 100%;
+  padding: 50px 135px;
   display: flex;
   flex-direction: column;
+  max-width: 800px;
+  gap: 24px;
 }
 
 .main a {
-  color: black;
+  color: var(--primary-color);;
+}
+.main a:hover {
+  color: var(--secondary-color);;
 }
 
-.main p,
-.main ol,
-.main ul {
-  margin: 10px 0;
-}
+.main p{
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 14px;
 
+  margin-top: 5px;
+}
+.main ol, .main ul {
+  padding-left: 24px;
+}
+.main ol p, .main ul p {
+  margin-bottom: 0;
+}
 .heading {
   text-transform: capitalize;
 }
@@ -40,38 +52,80 @@
   flex-direction: column;
   width: 100%;
 }
+.content h1 {
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 50px;
+  padding: 16px 0 12px;
+}
+pre.hljs-copy-wrapper{
+  padding: 20px 0 25px;
+}
+.content h2 {
+  font-size: 25px;
+  padding: 16px 0 12px;
+  font-weight: 600;
+}
+.content h3 {
+  padding: 16px 0 12px; 
 
+}
 li::marker {
   font-size: 14px;
 }
 
 /* video player portion */
 
-.content .video {
-  margin: 20px auto;
-}
-
 .content .video iframe {
-  width: 560px;
-  height: 315px;
+  width: 100%;
+  height: 400px;
   max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
-@media screen and (max-width: 425px) {
-  .main {
-    width: auto;
-    padding: 0px 10px;
+@media only screen and (max-width: 1024px) {
+.main {
+  padding: 12px 70px;
+  max-width: calc(100% - 140px);
+  gap: 16px;
+}
+.content h1 {
+  font-size: 32px;
+  line-height: 40px;
+}
+}
+
+
+@media only screen and (max-width: 768px) {
+
+  .main p {
+    font-size: 16px;
   }
-  .description {
-    width: 100%;
+  .main{
+    padding: 12px 50px;
+  }
+  .content h1 {
+    font-size: 28px;
+    line-height: 35px;
+  }
+  .content h2{
+    font-size: 22px;
   }
 }
 
-/* breakpoint */
-/* tablet view */
-@media screen and (min-width: 426px) and (max-width: 768px) {
-  .main {
-    width: auto;
-    padding: 30px 70px;
+@media only screen and (max-width: 556px) {
+  .main{
+    padding: 12px 18px 55px;
+  max-width: calc(100% - 36px);
+
+  }
+  .content h1 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .content h2{
+    font-size: 20px;
   }
 }
