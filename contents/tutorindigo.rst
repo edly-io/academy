@@ -38,7 +38,7 @@ By default when Tutor is installed, the Indigo theme will be installed along it 
 Customization
 =============
 
-Do you want to make your Open edX platform look professional and trustworthy? Then, you have to use your own branding assets. Using your own branding assets will ensure your site stands out and is easily recognizable, therefore, creating a seamless experience for your learners. It will reinforce your brand identity and will connect with your audience better. 
+To establish a professional and trustworthy presence on your Open edX platform, it is essential to incorporate your own branding assets. This will ensure your site stands out and is easily recognizable, therefore, creating a seamless experience for your learners. It will reinforce your brand identity and will connect with your audience better. 
 Furthermore, Customization options include modifying settings such as the welcome message, primary color, and footer navigation links. With the use of primary and secondary colors, the Indigo theme has highlighted Calls To Action (CTAs) and updated buttons across the platform to drive user engagement. The theme allows you to replace these with your brand colors if you desire to build a coherent brand image for your platform.
 Similarly, there are placeholders for you to add your organization’s information through the footer navigation links. You can even direct your user to your organization’s privacy policy and terms and conditions.
 
@@ -180,7 +180,7 @@ Sass Styles Adjustments
 
 Customize styles in ``tutorindigo/templates/indigo/lms/static/sass`` for LMS and ``tutorindigo/templates/indigo/cms/static/sass`` for CMS. Note that ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_extras.scss`` file is used for adding and overriding styles. For Example, To change the background-color of body, follow the below steps:
 
-- Clone the Tutor Indigo by running the command ```git clone https://github.com/overhangio/tutor-indigo.git```
+- Clone the Tutor Indigo by running the command ``git clone https://github.com/overhangio/tutor-indigo.git``
 - Add your styles in the ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_extras.scss``
 
 .. code-block:: sass
@@ -222,7 +222,9 @@ Clone the `@edx/brand <https://github.com/openedx/brand-openedx>`_ package and c
 Activating Dark theme
 ---------------------
 
-To enable the dark theme using Tutor Indigo, set the configuration variable by running the command ``tutor config save --set INDIGO_ENABLE_DARK_THEME=True``. Then follow the "How to deploy Customizations to Production" section at the last of this guide.
+You can now give users a more familiar experience by enabling the dark theme. Dark themes are increasingly popular for their aesthetic appeal and reduced eye strain, especially in low-light environments. By offering a dark theme, you cater to user preferences and enhance their overall experience on your platform.
+
+To enable the dark theme using Tutor Indigo, set the configuration variable by running the command ``tutor config save --set INDIGO_ENABLE_DARK_THEME=True``. Then follow the "How to deploy Customizations to Production" section at the last of this guide. This simple customization can make a significant difference in user satisfaction and engagement.
 
 How to deploy Customizations to Production
 ==========================================
