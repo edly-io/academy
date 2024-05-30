@@ -87,21 +87,24 @@ document
   .getElementById("categories-button")
   .addEventListener("click", categoriesFilterToggle);
 
-  document.addEventListener('click', function(event) {
-    const resourceTypeButton = document.getElementById('resource-type-button');
-    const resourceTypeFilter = document.getElementById('resource-type-filter');
-  
-    if (!resourceTypeButton.contains(event.target) && !resourceTypeFilter.contains(event.target)) {
-      resourceTypeFilter.classList.add('invisible');
-    }
-  });
+document.addEventListener("click", function (event) {
+  const resourceTypeButton = document.getElementById("resource-type-button");
+  const resourceTypeFilter = document.getElementById("resource-type-filter");
 
+  if (
+    !resourceTypeButton.contains(event.target) &&
+    !resourceTypeFilter.contains(event.target)
+  ) {
+    resourceTypeFilter.classList.add("invisible");
+  }
 
-  document.addEventListener('click', function(event) {
-    const categoriesButton = document.getElementById('categories-button');
-    const categoriesFilter = document.getElementById('categories-filter');
-  
-    if (!categoriesButton.contains(event.target) && !categoriesFilter.contains(event.target)) {
-      categoriesFilter.classList.add('invisible');
-    }
-  });
+  const categoriesButton = document.getElementById("categories-button");
+  const categoriesFilter = document.getElementById("categories-filter");
+
+  if (
+    !categoriesButton.contains(event.target) &&
+    !categoriesFilter.contains(event.target)
+  ) {
+    categoriesFilter.classList.add("invisible");
+  }
+});

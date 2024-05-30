@@ -269,7 +269,7 @@ input[type="radio"] {
   display: grid;
   row-gap: 30px;
   column-gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
 }
 
 .card {
@@ -633,6 +633,10 @@ pre code.hljs * {
 /* mobile view */
 
 @media only screen and (max-width: 1024px) {
+  .resources{
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  }
   .navbar {
     padding: 12px 70px;
   }
@@ -768,7 +772,7 @@ pre code.hljs * {
   }
   .footer-nav {
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     align-items: center;
   }
   .footer-nav a,
@@ -780,6 +784,7 @@ pre code.hljs * {
   .footer-bottom-text {
     width: 100%;
     max-width: 230px;
+    line-height: 15px;
   }
   .footer-bottom {
     margin-top: 15px;
