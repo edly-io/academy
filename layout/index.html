@@ -1,94 +1,118 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="content-area">
-    <h1 class="resources-heading">All Resources</h1>
-    <div class="filter">
-        <div class="filter-left">
-            <p class="filter-text">Filter by:</p>
-            <div class="filter-type">
-                <div id="resource-type-button" class="resource-type-label">
-                    <p>Resource type</p>
-                    <img class="arrow" src="{{ URL_ROOT }}/static/images/chevron-down-solid.svg" />
-                </div>
-                <ul class="resource-type-filter invisible" id="resource-type-filter">
-                    {% for resource_type in RESOURCE_TYPES %}
-                    <li class="resource-type-option">
-                        <input class='resource-type-input' type='radio' name="type" value="{{ resource_type }}" {% if
-                            resource_type=="all" %}checked{% endif %}>
-                        <label class="resource-label">{{ resource_type }}</label>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="filter-type">
-                <div id="categories-button" class="categories-label">
-                    <p>Topics</p>
-                    <img class="arrow" src="{{ URL_ROOT }}/static/images/chevron-down-solid.svg" />
-                </div>
-                <ul class="categories-filter invisible" id="categories-filter">
-                    {% for category in CATEGORIES %}
-                    <li class="category-option">
-                        <input class='category-input' type='radio' name="category" value="{{ category }}" {% if
-                            category=="all" %}checked{% endif %}>
-                        <label class="category-label">{{ category }}</label>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
+  <h1 class="resources-heading">All Resources</h1>
+  <div class="filter">
+    <div class="filter-left">
+      <p class="filter-text">Filter by:</p>
+      <div class="filter-wrapper">
+        <div class="filter-type">
+          <div id="resource-type-button" class="resource-type-label">
+            <p class="filter-dropdown">Resource type</p>
+            <img
+              class="arrow"
+              src="{{ URL_ROOT }}/static/images/chevron-down.svg"
+            />
+          </div>
+          <ul class="resource-type-filter invisible" id="resource-type-filter">
+            {% for resource_type in RESOURCE_TYPES %}
+            <li class="resource-type-option">
+              <input class='resource-type-input' type='radio' name="type"
+              value="{{ resource_type }}" {% if resource_type=="all" %}checked{%
+              endif %}>
+              <label class="resource-label">{{ resource_type }}</label>
+            </li>
+            {% endfor %}
+          </ul>
         </div>
+        <div class="filter-type">
+          <div id="categories-button" class="categories-label">
+            <p class="filter-dropdown">Topics</p>
+            <img
+              class="arrow"
+              src="{{ URL_ROOT }}/static/images/chevron-down.svg"
+            />
+          </div>
+          <ul class="categories-filter invisible" id="categories-filter">
+            {% for category in CATEGORIES %}
+            <li class="category-option">
+              <input class='category-input' type='radio' name="category"
+              value="{{ category }}" {% if category=="all" %}checked{% endif %}>
+              <label class="category-label">{{ category }}</label>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
-    <div id="resources" class="resources">
-        {% for resource in resources %}
-        <div class="card {% if not resource.src %}coming-soon-card{% endif %} {% if resource.src.startswith('http') %}external-link-card{% endif %}"
-            attr-resource-type="{{ resource.type }}" attr-category="{{ resource.category }}">
-            <a {% if not resource.src %} href="" {% elif resource.src.startswith('http') %}
+  </div>
+  <div id="resources" class="resources">
+    {% for resource in resources %}
+    <div
+      class="card {% if not resource.src %}coming-soon-card{% endif %} {% if resource.src.startswith('http') %}external-link-card{% endif %}"
+      attr-resource-type="{{ resource.type }}"
+      attr-category="{{ resource.category }}"
+    >
+      <a {% if not resource.src %} href="" {% elif resource.src.startswith('http') %}
                 href="{{ resource.src }}" target=_blank {% else %}
                 href="{{ URL_ROOT }}/{{ resource.src }}" {% endif %}>
-                <div class="card-tag {% if resource.type == 'Video' %}orange{% else %}green{% endif %}">
-                    {% if resource.type == "Video" %}
-                    <img class="play" src="{{ URL_ROOT}}/static/images/play-solid.svg" alt="play">
-                    {% else %}
-                    <img class="guide" src="{{ URL_ROOT}}/static/images/file-lines.svg" alt="file">
-                    {% endif %}
-                    <p class="card-tag-text">{{ resource.type }}</p>
-                </div>
-                {% if not resource.src %}
-                <div class='coming-soon-tag'>
-                    <p class='coming-soon-text'>coming soon</p>
-                </div>
-                {% endif %}
-                <h2 class="card-title">{{ resource.title }}
-                    {% if resource.src.startswith('http') %}
-                    <img class="link" src="{{ URL_ROOT }}/static/images/link.svg" alt="Link to external resource">
-                    {% endif %}
-                </h2>
-                <p class="card-desc">
-                    {{ resource.description }}
-                </p>
-            </a>
+        <div
+          class="card-tag {% if resource.type == 'Video' %}orange{% else %}green{% endif %}"
+        >
+          {% if resource.type == "Video" %}
+          <img
+            class="play"
+            src="{{ URL_ROOT}}/static/images/play-icon.svg"
+            alt="play"
+          />
+          {% else %}
+          <img
+            class="guide"
+            src="{{ URL_ROOT}}/static/images/file-icon.svg"
+            alt="file"
+          />
+          {% endif %}
+          <span class="card-tag-text">{{ resource.type }}</span>
         </div>
-        {% endfor %}
+        {% if not resource.src %}
+        <div class="coming-soon-tag">
+          <span class="coming-soon-text">coming soon</span>
+        </div>
+        {% endif %}
+        <h2 class="card-title">
+          {{ resource.title }} {% if resource.src.startswith('http') %}
+          <img
+            class="link"
+            src="{{ URL_ROOT }}/static/images/link.svg"
+            alt="Link to external resource"
+          />
+          {% endif %}
+        </h2>
+        <p class="card-desc">{{ resource.description }}</p>
+      </a>
     </div>
-    <div id="tutorials" class="tutorials">
-        <div class="detail-box">
-            <h2 class="tutorial-title">What is Edly Academy?</h2>
-            <div class="tutorial-description">It is a new resource centre that offers guides and tutorials for Open edX®
-                and Tutor, aiming to support the community with an expanding library focused on the use and development
-                of Open edX® platforms.</div>
-            <!-- <div class='learn-more'><p>learn more</p><img class='right-arrow' src='static/images/chevron-right.svg' alt='right'></div> -->
-        </div>
-        <div class="detail-box">
-            <h2 class="tutorial-title">Get Involved</h2>
-            <div class="tutorial-description">We encourage our community to contribute. By sharing your knowledge in
-                guides and tutorials, you can help us enhance our resource library, benefiting both new and existing
-                Open edX® users and developers.</div>
-            <!-- <div class='learn-more'><p>learn more</p><img class='right-arrow' src='static/images/chevron-right.svg' alt='right'></div> -->
-        </div>
+    {% endfor %}
+  </div>
+  <div id="tutorials" class="tutorials">
+    <div class="detail-box">
+      <h2 class="tutorial-title">What is Edly Academy?</h2>
+      <div class="tutorial-description">
+        It is a new resource centre that offers guides and tutorials for Open
+        edX® and Tutor, aiming to support the community with an expanding
+        library focused on the use and development of Open edX® platforms.
+      </div>
+      <!-- <div class='learn-more'><p>learn more</p><img class='right-arrow' src='static/images/chevron-right.svg' alt='right'></div> -->
     </div>
+    <div class="detail-box">
+      <h2 class="tutorial-title">Get Involved</h2>
+      <div class="tutorial-description">
+        We encourage our community to contribute. By sharing your knowledge in
+        guides and tutorials, you can help us enhance our resource library,
+        benefiting both new and existing Open edX® users and developers.
+      </div>
+      <!-- <div class='learn-more'><p>learn more</p><img class='right-arrow' src='static/images/chevron-right.svg' alt='right'></div> -->
+    </div>
+  </div>
 </div>
-{% endblock %}
-
-{% block js %}
+{% endblock %} {% block js %}
 <script src="{{ URL_ROOT }}/static/js/search.js" type="module"></script>
 {% endblock%}

@@ -8,25 +8,22 @@
     <link rel="icon" href="{{ URL_ROOT }}/static/images/favicon.png" />
     <link rel="stylesheet" href="{{ URL_ROOT }}/static/css/academy.css" />
     {% block css %}{% endblock%}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
   </head>
 
   <body>
     <div class="container">
       <div class="navbar">
         <a href="#" class="mobile-menu-link">
-          <img src="{{ URL_ROOT }}/static/images/bars-solid.svg" alt="menu" />
+          <img
+            src="{{ URL_ROOT }}/static/images/hamburger-icon.svg"
+            alt="menu"
+          />
         </a>
         <div class="edly-logo-item">
           <a class="edly-logo-link" href="{{ URL_ROOT }}">
             <img
               class="edly-logo"
-              src="{{ URL_ROOT }}/static/images/edly_logo.png"
+              src="{{ URL_ROOT }}/static/images/edly_logo.svg"
               alt="edly academy"
             />
           </a>
@@ -43,10 +40,10 @@
         >
           <img
             class="github-image"
-            src="{{ URL_ROOT }}/static/images/github_logo.png"
+            src="{{ URL_ROOT }}/static/images/github_logo.svg"
             alt="github"
           />
-          <p class="github-text">Edit on GitHub</p>
+          <span class="github-text">Edit on GitHub</span>
         </a>
       </div>
       <div class="mobile-menu">
@@ -61,7 +58,7 @@
           <a class="mobile-edly-logo-link" href="{{ URL_ROOT }}">
             <img
               class="mobile-edly-logo"
-              src="{{ URL_ROOT }}/static/images/edly_logo.png"
+              src="{{ URL_ROOT }}/static/images/edly_logo.svg"
               alt="edly academy"
             />
           </a>
@@ -78,10 +75,10 @@
           >
             <img
               class="mobile-github-image"
-              src="{{ URL_ROOT }}/static/images/github_logo.png"
+              src="{{ URL_ROOT }}/static/images/github_logo.svg"
               alt="github"
             />
-            <p class="mobile-github-text">Edit on GitHub</p>
+            <span class="mobile-github-text">Edit on GitHub</span>
           </a>
         </div>
       </div>
@@ -91,23 +88,23 @@
       <div class="footer">
         <div class="footer-content">
           <p class="email-label">
-            Get the latest resources, tips, and best practices directly in your
-            inbox
+            Get the latest resources, tips, <br />
+            and best practices directly in your inbox
           </p>
-
-          <div class="footer-nav">
-            <p>Edly 2024 All rights reserved</p>
-            <p><a href="/privacy-policy/"> Privacy Policy </a></p>
-            <p><a href="/terms-and-conditions/">Terms & Conditions</a></p>
+          <div class="footer-bottom">
+            <ul class="footer-nav">
+              <li>Edly 2024 All rights reserved</li>
+              <li><a href="/privacy-policy/"> Privacy Policy </a></li>
+              <li><a href="/terms-and-conditions/">Terms & Conditions</a></li>
+            </ul>
+            <p class="footer-bottom-text">
+              edX and Open edX are registered trademarks of edX Inc
+            </p>
           </div>
-          <p class="footer-bottom-text">
-            edX and Open edX are registered trademarks of edX Inc
-          </p>
         </div>
       </div>
     </div>
     {% block js %}{% endblock%}
-
     <script
       charset="utf-8"
       type="text/javascript"
@@ -135,7 +132,7 @@
       // email subscription form placement in the footer
       const hubspotForm = document.querySelector(".hbspt-form");
       const footerContent = document.querySelector(".footer-content");
-      const footerNav = document.querySelector(".footer-nav");
+      const footerNav = document.querySelector(".footer-bottom");
       footerContent.insertBefore(hubspotForm, footerNav);
 
       //set width of email subscription
