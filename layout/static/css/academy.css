@@ -26,7 +26,6 @@ body {
 
 .container {
   height: 100vh;
-  width: 100vw;
   background-color: white;
 }
 
@@ -47,6 +46,9 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   margin-right: 24px;
+}
+a.github-link {
+  margin-right: 0 !important;
 }
 
 .mobile-menu-link {
@@ -112,7 +114,7 @@ ul.navbar-list li a {
 }
 /* main content area */
 .content-area {
-  padding: 50px 135px 100px;
+  padding: 50px 135px 80px;
   display: flex;
   flex-direction: column;
 }
@@ -283,7 +285,6 @@ input[type="radio"] {
   position: relative;
   padding: 32px 24px;
   max-width: calc(357px - 48px);
-
 }
 
 .card a {
@@ -321,7 +322,7 @@ input[type="radio"] {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 5px 15px;
+  padding: 7px 15px;
   color: var(--white);
   background-color: #3574a7;
   border-radius: 6px;
@@ -329,7 +330,9 @@ input[type="radio"] {
   font-weight: 600;
   width: fit-content;
 }
-
+.card-tag .guide {
+  width: 16px;
+}
 .card-title {
   overflow: hidden;
   display: -webkit-box;
@@ -376,7 +379,7 @@ input[type="radio"] {
   width: 100%;
   display: flex;
   gap: 96px;
-  margin-top: 100px;
+  margin-top: 80px;
   flex-direction: row;
 }
 
@@ -632,17 +635,25 @@ pre code.hljs * {
 
 /* mobile view */
 
-@media only screen and (max-width: 1024px) {
-  .resources{
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
+@media only screen and (min-width: 1440px) {
+  .card {
+    max-width: 100%;
   }
+}
+
+@media only screen and (max-width: 1200px) {
   .navbar {
     padding: 12px 70px;
   }
   .content-area {
     padding: 30px 70px 60px;
   }
+}
+@media only screen and (max-width: 1024px) {
+  .resources {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
   .resources-heading {
     font-size: 35px;
     line-height: 40px;
@@ -652,6 +663,9 @@ pre code.hljs * {
   }
   .tutorials {
     margin-top: 70px;
+  }
+  .card {
+    max-width: calc(450px - 48px);
   }
 }
 @media only screen and (max-width: 768px) {
@@ -702,7 +716,7 @@ pre code.hljs * {
     line-height: 25px;
   }
 
-  .card{
+  .card {
     max-width: 100%;
   }
 }
@@ -810,7 +824,7 @@ pre code.hljs * {
   .resource-type-option {
     font-size: 14px;
   }
-  .footer{
+  .footer {
     padding: 40px 0;
   }
 }
