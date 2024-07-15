@@ -80,6 +80,16 @@ RESOURCES = [
         "type": "Analysis",
         "category": "DevOps",
     },
+    {
+        "title": "Tutor Indigo - Customize the user experience by branding Open edX",
+        "src": "tutorindigo",
+        "type": "Guide",
+        "description": "Tutor Indigo is a theme designed for use with Tutor, to give a new look to Open edX platform",
+        "category": "UI/UX",
+        "target_audience": [],
+        "learning_outcomes": [],
+        "video": {}
+    },
 ]
 
 VARIABLES = {
