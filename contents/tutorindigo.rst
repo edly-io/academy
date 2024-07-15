@@ -2,24 +2,24 @@ Before delving into Tutor Indigo, it's essential to grasp the fundamentals of `O
 
 A little bit of knowledge about comprehensive theming is also required for making template and style changes that is Open edX by default theme. More details can be found on `Comprehensive Theming <https://edx.readthedocs.io/projects/edx-installing-configuring-and-running/en/latest/ecommerce/theming.html>`_ and `Changing the appearance of Open edX <https://docs.tutor.edly.io/tutorials/theming.html>`__.
 
-What is a theme? 
+What is a theme?
 ================
 
 A theme is a collection of files and settings that determine the visual appearance and user interface of the site. It includes stylesheets, templates, and sometimes scripts that together define the colors, fonts, layouts, and overall aesthetic of the platform. Themes allow us to customize the look and feel of our ed tech platform to match our brand identity and provide a cohesive user experience.
 
-So why do we need to install a theme? Installing a theme for the platform allows us to improve the user experience and customize it according to our brand. A theme allows us to align the platform’s visuals with our organization’s brand, helping us maintain a professional and trustworthy look. 
+So why do we need to install a theme? Installing a theme for the platform allows us to improve the user experience and customize it according to our brand. A theme allows us to align the platform’s visuals with our organization’s brand, helping us maintain a professional and trustworthy look.
 Themes like `Indigo <https://github.com/overhangio/tutor-indigo>`_ are designed to enhance user experience by making it easier to navigate through the platform and engage with course content. In addition to this, themes provide a consistent look and feel across all pages and components of your platform, which is important for user familiarity and comfort.
 
 What is Indigo
 ==============
 
-`Indigo <https://github.com/overhangio/tutor-indigo>`_ is a specially designed theme for Open edX that brings a modern, clean, and intuitive interface to the Open edX platform. 
+`Indigo <https://github.com/overhangio/tutor-indigo>`_ is a specially-designed theme for Open edX that brings a modern, clean, and intuitive interface to the Open edX platform.
 
-Firstly, Indigo offers a sleek and responsive design for all devices to enhance accessibility for all users. 
+Firstly, Indigo offers a sleek and responsive design for all devices to enhance accessibility for all users.
 
-Secondly, Indigo is built with customization in mind, allowing organizations to easily tweak the appearance to better match their branding needs. The goal for Indigo has been to engage learners with welcoming messaging and intuitive navigation across the platform. 
+Secondly, Indigo is built with customization in mind, allowing organizations to easily tweak the appearance to better match their branding needs. The goal for Indigo has been to engage learners with welcoming messaging and intuitive navigation across the platform.
 
-Finally, since Indigo is a widely adopted theme within the Open edX community, it benefits from continuous improvements and support from the community, ensuring it stays up-to-date with the latest releases. 
+Finally, since Indigo is a widely-adopted theme within the Open edX community, it benefits from continuous improvements and support from the community, ensuring it stays up-to-date with the latest releases.
 
 What is a plugin?
 =================
@@ -37,20 +37,20 @@ To install and activate the Indigo plugin, use the following commands::
     tutor plugins enable indigo
     tutor local launch
 
-By default when Tutor is installed, the Indigo theme will be installed along it and automatically applied if a different theme is not previously defined. 
+By default when Tutor is installed, the Indigo theme will be installed along it and automatically applied if a different theme is not previously defined.
 
 Customization
 =============
 
-To establish a professional and trustworthy presence on your Open edX platform, it is essential to incorporate your branding assets. This will ensure your site stands out and is easily recognizable, therefore, creating a seamless experience for your learners. It will reinforce your brand identity and will connect with your audience better. 
+To establish a professional and trustworthy presence on your Open edX platform, it is essential to incorporate your branding assets. This will ensure your site stands out and is easily recognizable, therefore, creating a seamless experience for your learners. It will reinforce your brand identity and will connect with your audience better.
 
-Customization options include modifying settings such as the welcome message, primary color, and footer navigation links. With the use of primary and secondary colors, the Indigo theme has highlighted Calls To Action (CTAs) and updated buttons across the platform to drive user engagement. The theme allows you to replace these with your brand colors if you desire to build a coherent brand image for your platform.
+Customization options include modifying settings such as the welcome message, primary color, and footer navigation links. With the use of primary and secondary colors, the Indigo theme has highlighted Calls To Action (CTAs) and updated buttons across the platform to drive user engagement. The theme allows you to replace these with your brand colors.
 
-Similarly, there are placeholders for you to add your organization’s information through the footer navigation links. You can even direct your user to your organization’s privacy policy and terms and conditions.
+Similarly, there are placeholders to add your organization’s information to the footer navigation links. You can also direct your user to your organization’s privacy policy and terms and conditions.
 
 These settings can be adjusted using the ``tutor config save --set INDIGO_*=`` command. The ``INDIGO_*`` means to set the configuration variables with ``INDIGO_`` prefix as below.
 
-1. To set purple as primary color for platform, you need to run::
+1. To set purple as primary color for platform, run::
 
     tutor config save --set INDIGO_PRIMARY_COLOR="#A020F0"
 
@@ -69,31 +69,32 @@ These settings can be adjusted using the ``tutor config save --set INDIGO_*=`` c
     :width: 800
     :alt: Welcome message, primary color and footer navigation links can be updated through Tutor Indigo
 
-For deeper customization, the plugin can serve as a foundation for creating custom themes. Forking the repository and making modifications allows for tailored designs. Changes can be viewed instantly in development mode using ``tutor dev`` commands. Here's how you can customize using Tutor Indigo.
+Indigo can serve as a foundation for more extensive customization and more custom themes. Forking the repository and making modifications allows for tailored designs. Changes can be viewed instantly in development mode using ``tutor dev`` commands. Here's how to customize Tutor Indigo.
 
 How to make changes to the Indigo plugin
 ----------------------------------------
 
-To apply changes to a dedicated subsection, one must have to first clone the Tutor Indigo by running ``git clone https://github.com/overhangio/tutor-indigo.git`` and make changes in it. To reflect the changes, rebuild the "openedx" Docker image and restart containers::
+To apply changes to a dedicated subsection, clone the Tutor Indigo by running ``git clone https://github.com/overhangio/tutor-indigo.git`` and make changes in it. To reflect the changes, rebuild the "openedx" Docker image and restart containers::
 
     cd tutor-indigo
     pip install -e .                # install forked tutor-indigo
-    
-    tutor config save               
+
+    tutor config save
     tutor images build openedx      # rebuild Open edX image
     tutor images build mfe          # rebuild MFE image if the changes are related to MFEs
-    tutor local start -d            
+    tutor local start -d
 
 
 Logos and Images Alterations
 ----------------------------
 
-Changing the platform logo and favicon will reinforce your brand identity and ensure user recognition. The platform logo appears in the header, while the favicon is the small icon in the browser tab. Customizing these elements creates a professional and consistent look across your Open edX platform. However, the theme currently offers a placeholder logo that can easily be replaced later when your organization wishes to transition to a more customized learning experience. 
-To use your logo and images, the following steps need to be done:
+Changing the platform logo and favicon will reinforce your brand identity and ensure user recognition. The platform logo appears in the header, while the favicon is the small icon in the browser tab. Customizing these elements creates a professional and consistent look across your Open edX platform. However, the theme currently offers a placeholder logo that can easily be replaced later when your organization wishes to transition to a more customized learning experience.
 
-- Go to ``tutorindigo/templates/indigo/lms/static/images`` for replacing images for LMS and ``tutorindigo/templates/indigo/cms/static/images`` for replacing images for CMS
-- Remove the already logo and platform image from the folders mentioned in previous step. Add your logo and platform images in these folders. Ensure that your image name remains the same as the previous images. For example, if you want to change ``tutor-logo.png``, you can add your logo and rename it to ``tutor-logo.png``. 
-- Similar to above steps, you can update all images including favicon.ico
+To use your logo and images, do the following:
+
+- Go to ``tutorindigo/templates/indigo/lms/static/images`` for replacing images in the LMS and ``tutorindigo/templates/indigo/cms/static/images`` for replacing images in the Studio.
+- Remove the already logo and platform image from the folders mentioned in previous step. Add your logo and platform images in these folders. Ensure that your image name remains the same as the previous images. For example, to change ``tutor-logo.png``, add your logo to the same directory and rename it to ``tutor-logo.png``.
+- Similar to above steps, you can update all favicon images by replacing the ``favicon.ico`` file.
 
 .. image:: /academy/static/images/tutorindigo/logo_favicon.png
   :width: 800
@@ -102,10 +103,10 @@ To use your logo and images, the following steps need to be done:
 Font Modifications
 ------------------
 
-There are two ways to update the font family of LMS. One is to use your font files and the second is to use google fonts url. Follow the below steps to update font of LMS:
+There are two ways to update the font families used in the LMS. One is to use your font files and the second is to use Google Fonts url. Follow the below steps to update the fonts of your LMS:
 
-- Download your font files and move them to ``tutorindigo/templates/indigo/lms/static/fonts`` folder. For example, to change the LMS default font family to `Crimson <https://fonts.google.com/specimen/Crimson+Text>`__, download the ``CrimsonText*.ttf`` files and move them to the ``tutorindigo/templates/indigo/lms/static/fonts`` folder
-- Now, setup the font file paths in ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_fonts.scss`` file. If the file is not present, then create it and add the font files path to it. In case of Crimson font, you need to add this:
+- Download your font files and move them to the ``tutorindigo/templates/indigo/lms/static/fonts`` folder. For example, to change the LMS default font family to `Crimson <https://fonts.google.com/specimen/Crimson+Text>`__, download the ``CrimsonText*.ttf`` files and move them to the ``tutorindigo/templates/indigo/lms/static/fonts`` folder
+- Now, setup the font file paths in ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_fonts.scss`` file. If the file is not present, then create it and add the font files path to it. In case of Crimson font, add the following:
 
 .. code-block:: sass
 
@@ -151,11 +152,11 @@ There are two ways to update the font family of LMS. One is to use your font fil
         font-style: italic;
     }
 
-Here, you have to ensure that ``font-weight`` and ``font-style`` should match with the respective files. Like, ``fonts/CrimsonText-Bold.ttf`` has font-weight 700 and font-style normal.
+Here, you have to ensure that ``font-weight`` and ``font-style`` are consistent with the respective files. For instance, ``fonts/CrimsonText-Bold.ttf`` has font-weight 700 and font-style normal.
 
 - After that, In ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_extras.scss`` file, add the below line for loading the fonts in LMS platform::
 
-    @import "fonts"; 
+    @import "fonts";
 
 - Lastly, set font family in ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_variables.scss`` file as below::
 
@@ -167,16 +168,13 @@ The above steps need to be followed for CMS. But CMS requires one more step in a
 
 - Include the below line in ``tutor-indigo/tutorindigo/templates/indigo/cms/static/sass/partials/cms/theme/_variables-v1.scss`` file after ``$static-path`` definition::
 
-    $baseline: 20px;
-
+    ...
     $static-path: '..' !default;
-
     @import "fonts";   /* add this line */
-
     ...
 
 After making the above changes, run::
-    
+
     tutor config save                  # update tutor environment
     tutor images build openedx         # rebuild Docker image
     tutor local start -d               # apply changes
@@ -191,12 +189,12 @@ After making the above changes, run::
       - .. image:: /academy/static/images/tutorindigo/cms_font_change.png
             :width: 400
             :alt: CMS Inter Font Style Example
-    
+
 
 Sass Styles Adjustments
 -----------------------
 
-Customize styles in ``tutorindigo/templates/indigo/lms/static/sass`` for LMS and ``tutorindigo/templates/indigo/cms/static/sass`` for CMS. Note that ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_extras.scss`` file is used for adding and overriding styles. For Example, to change the background-color of body, add your styles in the ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_extras.scss`` as below.
+Customize styles in ``tutorindigo/templates/indigo/lms/static/sass`` for LMS and ``tutorindigo/templates/indigo/cms/static/sass`` for CMS. Note that the ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_extras.scss`` file is used for adding and overriding styles. For example, to change the body background-color, add your styles in the ``tutorindigo/templates/indigo/lms/static/sass/partials/lms/theme/_extras.scss`` as follows::
 
 .. code-block:: sass
 
@@ -204,7 +202,6 @@ Customize styles in ``tutorindigo/templates/indigo/lms/static/sass`` for LMS and
         min-height: initial;
         background-color: #fff;
     }
-
 
 
 Updating HTML templates
@@ -243,10 +240,8 @@ To enable the dark theme using Tutor Indigo, set the configuration variable by r
     :width: 800
     :alt: Open edX LMS Dark theme Example
 
-
 .. image:: /academy/static/images/tutorindigo/learner_dashboard_mfe_dark_theme.png
     :width: 800
     :alt: Open edX Learner Dashboard MFE Dark theme Example
-
 
 Tutor Indigo offers a comprehensive toolkit for enhancing and personalizing the Open edX platform. By doing the above customizations, you can tailor the platform's appearance to better suit your organization's needs and branding requirements.
