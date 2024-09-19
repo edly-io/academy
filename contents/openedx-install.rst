@@ -1,6 +1,6 @@
 .. raw:: html
 
-    <div class="video"><iframe src="https://www.youtube.com/embed/dTHHeEXu2c8?si=bAJY0YudA5nAWAld" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/dTHHeEXu2c8?si=bAJY0YudA5nAWAld" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 
 Hi! If you are watching this video, then you probably want to install Open edX on your server. That's exactly what we are going to do here. If you are not quite ready yet and you want to learn more about Open edX and Tutor first, that will be the topic of another video.
 

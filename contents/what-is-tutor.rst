@@ -1,6 +1,6 @@
 .. raw:: html
 
-    <div class="video"><iframe src="https://www.youtube.com/embed/BzNcrmyFpw4?si=YCOJpqWOc8dFOC4-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/BzNcrmyFpw4?si=YCOJpqWOc8dFOC4-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 
 You might already know about `Open edX <https://openedx.org/>`__, but you might be wondering what Tutor is. If that is the case, then this video is for you. I'll explain what Tutor is, why we created it and how it works. If you need detailed instructions on how to install Open edX with Tutor, `we have a separate tutorial for that </academy/openedx-install>`__.
 

@@ -25,6 +25,13 @@ RESOURCES = [
     #     "learning_outcomes": [],
     # },
     {
+        "title": "Upgrading Open edX from Quince To Redwood ",
+        "src": "redwood-upgrade",
+        "description": "Step-by-step instructions on upgrading an existing Open edX platform from Quince to Redwood",
+        "type": "Tutorial",
+        "category": "Devops",
+    },
+    {
         "title": "Docker 101",
         "src": "docker101",
         "description": "Learn the basics of Docker and Docker Compose in this general, beginner-level tutorial.",
