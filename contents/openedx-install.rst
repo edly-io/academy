@@ -67,6 +67,19 @@ Once we have both Docker and Python on our system, we are ready to install Tutor
 
 This command installs Tutor in the ``~/.local/bin directory``. But our system does not know about this directory. So, after we install Tutor, we still cannot run "tutor" commands. To resolve this, we are going to tell the system about Tutor. We switch back to root and create a symbolic link from our tutor executable to /usr/local/bin. Then, we switch back to our "openedx" user and now we can run "tutor" commands.
 
+Note: In newer versions (3.12+) of Python, the above command fails with the following error::
+
+    error: externally-managed-environment
+
+⚠️ DO NOT USE SUDO TO BYPASS THIS ISSUE! This would create a whole range of new issues. Instead, install Tutor in a virtual environment::
+
+    mkdir ~/venvs
+    python -m ~/venvs/tutor
+    source ~/venvs/tutor/bin/activate
+    pip install 'tutor[full]'
+
+You should then be able to run ``tutor --version``. And then, in any new terminal where tutor needs to be used, run the ``activate`` command again.
+
 Open edX
 ========
 
