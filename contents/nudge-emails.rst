@@ -2,7 +2,7 @@
 
     <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/jHszJ6A9jMw?si=k58aSJBKU6_rOy12" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 
-**Introduction**: John Swope outlines the importance of learner engagement and the challenges faced by educational platforms in maintaining participation and course completion rates.
+**Introduction**: John Swope from <a href="http://curricu.me/">Curricu.me</a> outlines the importance of learner engagement and the challenges faced by educational platforms in maintaining participation and course completion rates.
 
 **Hyper-Personalization Concept**: He introduces the idea of using detailed learner data to create customized nudge emails, explaining how this approach resonates better than generic communication.
 
