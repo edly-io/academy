@@ -25,6 +25,20 @@ RESOURCES = [
     #     "learning_outcomes": [],
     # },
     {
+        "title": "Creating and Running an Accessible Online Course: A Primer",
+        "src": "accessible-course",
+        "description": "This video is an essential resource for educators and course creators aiming to make online learning accessible to everyone, including learners with disabilities. It offers actionable insights and practical steps.",
+        "type": "Video",
+        "category": "General",
+    },
+    {
+        "title": "Achieving double completion rates through Hyper Personalized Nudge Emails",
+        "src": "nudge-emails",
+        "description": "John Swope outlines the importance of learner engagement and the challenges faced by educational platforms in maintaining participation and course completion rates.",
+        "type": "Video",
+        "category": "General",
+    },
+    {
         "title": "Upgrading Open edX from Quince To Redwood ",
         "src": "redwood-upgrade",
         "description": "Step-by-step instructions on upgrading an existing Open edX platform from Quince to Redwood",
