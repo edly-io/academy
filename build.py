@@ -46,6 +46,13 @@ RESOURCES = [
         "category": "Devops",
     },
     {
+        "title": "Tutor Indigo - Customize the user experience by branding Open edX",
+        "src": "tutorindigo",
+        "type": "Guide",
+        "description": "Tutor Indigo is a theme designed for use with Tutor, to give a new look to Open edX platform",
+        "category": "UI/UX",
+    },
+    {
         "title": "Docker 101",
         "src": "docker101",
         "description": "Learn the basics of Docker and Docker Compose in this general, beginner-level tutorial.",
@@ -100,16 +107,6 @@ RESOURCES = [
         "description": "Read all about this achievement in this interview of the Edly DevOps team.",
         "type": "Analysis",
         "category": "DevOps",
-    },
-    {
-        "title": "Tutor Indigo - Customize the user experience by branding Open edX",
-        "src": "tutorindigo",
-        "type": "Guide",
-        "description": "Tutor Indigo is a theme designed for use with Tutor, to give a new look to Open edX platform",
-        "category": "UI/UX",
-        "target_audience": [],
-        "learning_outcomes": [],
-        "video": {}
     },
 ]
 
