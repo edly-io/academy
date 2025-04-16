@@ -25,6 +25,13 @@ RESOURCES = [
     #     "learning_outcomes": [],
     # },
     {
+        "title": "Tutor Deck",
+        "src": "tutor-deck",
+        "description": "We are excited to announce the launch of the Tutor Deck, a brand-new interface to discover, install, and manage Open edX plugins.",
+        "type": "Guide",
+        "category": "General",
+    },
+    {
         "title": "Creating and Running an Accessible Online Course: A Primer",
         "src": "accessible-course",
         "description": "This video is an essential resource for educators and course creators aiming to make online learning accessible to everyone, including learners with disabilities. It offers actionable insights and practical steps.",
