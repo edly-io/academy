@@ -25,6 +25,13 @@ RESOURCES = [
     #     "learning_outcomes": [],
     # },
     {
+        "title": "Edly Spotlight #1: Rethinking Curriculum for the Age of AI",
+        "src": "spotlight-01-rethinking-curriculum-for-the-age-of-ai",
+        "description": "Interview with Charles Fadel, from the Center for Curriculum Redesign",
+        "type": "Video",
+        "category": "General",
+    },
+    {
         "title": "Tutor Deck",
         "src": "tutor-deck",
         "description": "We are excited to announce the launch of the Tutor Deck, a brand-new interface to discover, install, and manage Open edX plugins.",
