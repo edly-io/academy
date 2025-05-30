@@ -4,6 +4,15 @@ This is the source code of the site that is hosted on https://edly.io/academy. C
 
 ## Usage
 
+To add a new article, open the [build.py](./build.py) file. Insert an entry in `RESOURCES`. Then, test your changes with:
+
+    make build # or `make watch`
+    make serve
+
+Once your changes are ready, push them to the upstream repository. The contents of edly.io/academy will be automatically updated after the automated [actions](https://github.com/edly-io/academy/actions/workflows/deploy_s3.yml) have run successfully.
+
+## Development
+
 Install requirements:
 
 - For Linux:
@@ -23,6 +32,7 @@ Build the static website:
 Run a development server:
 
     make serve
+
 
 ## License
 
