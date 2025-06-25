@@ -348,11 +348,11 @@ input[type="radio"] {
 }
 
 .green {
-  background-color: #00ad90;
+  background-color: #00806a;
 }
 
 .orange {
-  background-color: #f59913;
+  background-color: #A86500;
 }
 
 .card-desc {
@@ -435,10 +435,11 @@ input[type="radio"] {
 
 .email-label {
   color: var(--primary-color);
-  font-size: 24px;
-  font-weight: 300;
+  font-size: 30px;
+  font-weight: 500;
+  max-width: 520px;
   text-align: center;
-  line-height: 30px;
+  line-height: 35px;
   padding-bottom: 20px;
 }
 
@@ -511,6 +512,7 @@ ul.footer-nav li:first-child {
   color: var(--text-color);
   padding-left: 30px;
   font-size: 14px;
+  text-decoration: underline;
 }
 .footer-nav a:hover {
   color: var(--secondary-color);
@@ -631,6 +633,35 @@ pre code.hljs * {
     Liberation Mono, Courier New, monospace;
   font-size: 1em;
   line-height: normal;
+}
+
+/* skip button */
+.academy-skip-link {
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: -10000em;
+    width: 1px;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+.academy-skip-link:focus {
+    background-color: #eee;
+    clip: auto !important;
+    clip-path: none;
+    color: #333;
+    display: block;
+    font-size: 1rem;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 12px 24px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
 }
 
 /* mobile view */

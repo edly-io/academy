@@ -1,19 +1,21 @@
 {% extends "base.html" %} {% block content %}
-<div class="content-area">
+<div id="main-content" class="content-area">
   <h1 class="resources-heading">All Resources</h1>
   <div class="filter">
     <div class="filter-left">
       <p class="filter-text">Filter by:</p>
       <div class="filter-wrapper">
         <div class="filter-type">
-          <div id="resource-type-button" class="resource-type-label">
+          <div id="resource-type-button" class="resource-type-label" tabindex="0" role="button" onkeydown="if(event.key === 'Enter' || event.key === ' '){ this.click(); event.preventDefault(); }">
             <p class="filter-dropdown">Resource type</p>
             <img
               class="arrow"
               src="{{ URL_ROOT }}/static/images/chevron-down.svg"
+              alt=""
+              aria-hidden="true"
             />
           </div>
-          <ul class="resource-type-filter invisible" id="resource-type-filter">
+          <ul class="resource-type-filter invisible" id="resource-type-filter" role="radiogroup" aria-label="Filter by resource type">
             {% for resource_type in RESOURCE_TYPES %}
             <li class="resource-type-option">
               <input class='resource-type-input' type='radio' name="type"
@@ -25,11 +27,13 @@
           </ul>
         </div>
         <div class="filter-type">
-          <div id="categories-button" class="categories-label">
+          <div id="categories-button" class="categories-label" tabindex="0" role="button" onkeydown="if(event.key === 'Enter' || event.key === ' '){ this.click(); event.preventDefault(); }">
             <p class="filter-dropdown">Topics</p>
             <img
               class="arrow"
               src="{{ URL_ROOT }}/static/images/chevron-down.svg"
+              alt=""
+              aria-hidden="true"
             />
           </div>
           <ul class="categories-filter invisible" id="categories-filter">

@@ -60,6 +60,7 @@ Click on a plugin to view details and install it.
 
 .. image:: /academy/static/images/tutor-deck/marketplace.png
    :width: 800
+   :alt: Screenshot of plugin marketplace
 
 Install & Enable a Plugin
 -------------------------
@@ -76,6 +77,7 @@ Install & Enable a Plugin
 
 .. image:: /academy/static/images/tutor-deck/install-plugin.png
    :width: 800
+   :alt: Screenshot of plugin detail page
 
 Restarting the Platform
 -----------------------
@@ -102,6 +104,7 @@ The **“Installed Plugins” tab** shows all installed plugins. You can:
 
 .. image:: /academy/static/images/tutor-deck/installed.png
    :width: 800
+   :alt: Screenshot of installed plugins page
 
 Developer Mode: CLI for Power Users
 -----------------------------------
@@ -116,6 +119,7 @@ It's perfect for those who want speed *and* control.
 
 .. image:: /academy/static/images/tutor-deck/developer-mode.png
    :width: 800
+   :alt: Screenshot of developer mode
 
 A Dedicated “Apply Changes” Tab
 -------------------------------
@@ -129,6 +133,7 @@ Changes” tab** allows you to:
 
 .. image:: /academy/static/images/tutor-deck/apply-changes.png
    :width: 800
+   :alt: Screenshot of launch platform screen
 
 A Quick Note: Early Release
 ---------------------------
