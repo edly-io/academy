@@ -12,6 +12,7 @@
 
   <body>
     <div class="container">
+      <a href="#main-content" class="academy-skip-link">Skip to main content</a>
       <div class="navbar">
         <a href="#" class="mobile-menu-link">
           <img
@@ -87,13 +88,12 @@
 
       <div class="footer">
         <div class="footer-content">
-          <p class="email-label">
-            Get the latest resources, tips, <br />
-            and best practices directly in your inbox
-          </p>
+          <h2 class="email-label">
+            Get the latest resources, tips, and best practices directly in your inbox
+          </h2>
           <div class="footer-bottom">
             <ul class="footer-nav">
-              <li>Edly 2024 All rights reserved</li>
+              <li>Edly 2025 All rights reserved</li>
               <li><a href="/privacy-policy/"> Privacy Policy </a></li>
               <li><a href="/terms-and-conditions/">Terms & Conditions</a></li>
             </ul>
@@ -115,6 +115,33 @@
         region: "na1",
         portalId: "14529077",
         formId: "8471b02a-3592-4672-a0cf-9c0bfeca7712",
+        onFormReady: function($form) {
+          const emailInput = $form.querySelector('input[type="email"]');
+          if (emailInput) {
+            emailInput.setAttribute("aria-label", "Subscribe to Newsletter");
+          }
+          setTimeout(function() {
+            const iframe = document.querySelector("iframe.hs-form-iframe");
+            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                
+            // Create a new <style> tag
+            const style = iframeDocument.createElement("style");
+            style.textContent = `
+              input[type="email"]::placeholder {
+                color: #33475b !important;
+              }
+              .hs-error-msgs label {
+                color: #a30008;
+              }
+              .hs-form-required {
+                color: #a30008 !important;
+              }
+            `;
+              
+            // Append style to <head> of the iframe
+            iframeDocument.head.appendChild(style);
+          }, 500);
+        }
       });
     </script>
     <script>
