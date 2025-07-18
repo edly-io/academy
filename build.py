@@ -25,6 +25,13 @@ RESOURCES = [
     #     "learning_outcomes": [],
     # },
     {
+        "title": "Edly Spotlight #2: Impact of Technology & Cultural Intelligence in Education",
+        "src": "spotlight-02-technology-cultural-intelligence-prerna-choubey",
+        "description": "Interview with Prerna Choubey, from the Pramanity Research Group",
+        "type": "Video",
+        "category": "General",
+    },
+    {
         "title": "Edly Spotlight #1: Rethinking Curriculum for the Age of AI",
         "src": "spotlight-01-rethinking-curriculum-for-the-age-of-ai",
         "description": "Interview with Charles Fadel, from the Center for Curriculum Redesign",
